@@ -1,0 +1,2928 @@
+{
+  "entityType" : "DASHBOARD",
+  "entity" : {
+    "title" : "Smart bus tracking",
+    "image" : null,
+    "mobileHide" : false,
+    "mobileOrder" : null,
+    "configuration" : {
+      "description" : "",
+      "widgets" : {
+        "f931ab44-35dc-df6d-c4e5-5daf7b78c646" : {
+          "type" : "latest",
+          "sizeX" : 7.5,
+          "sizeY" : 6.5,
+          "config" : {
+            "timewindow" : {
+              "displayValue" : "",
+              "selectedTab" : 0,
+              "realtime" : {
+                "realtimeType" : 1,
+                "interval" : 1000,
+                "timewindowMs" : 86400000,
+                "quickInterval" : "CURRENT_DAY",
+                "hideInterval" : false,
+                "hideLastInterval" : false,
+                "hideQuickInterval" : false
+              },
+              "history" : {
+                "historyType" : 0,
+                "interval" : 1000,
+                "timewindowMs" : 60000,
+                "fixedTimewindow" : {
+                  "startTimeMs" : 1682928998568,
+                  "endTimeMs" : 1683015398568
+                },
+                "quickInterval" : "CURRENT_DAY",
+                "hideInterval" : false,
+                "hideLastInterval" : false,
+                "hideFixedInterval" : false,
+                "hideQuickInterval" : false
+              },
+              "aggregation" : {
+                "type" : "NONE",
+                "limit" : 200
+              }
+            },
+            "showTitle" : true,
+            "backgroundColor" : "rgb(255, 255, 255)",
+            "color" : "rgba(0, 0, 0, 0.87)",
+            "padding" : "4px",
+            "settings" : {
+              "enableSearch" : true,
+              "displayPagination" : true,
+              "defaultPageSize" : 10,
+              "defaultSortOrder" : "name",
+              "displayEntityName" : false,
+              "displayEntityType" : false,
+              "enableSelectColumnDisplay" : true,
+              "enableStickyHeader" : true,
+              "enableStickyAction" : true,
+              "reserveSpaceForHiddenAction" : "true",
+              "displayEntityLabel" : false,
+              "useRowStyleFunction" : false,
+              "entitiesTitle" : "Buses"
+            },
+            "title" : "Buses",
+            "dropShadow" : true,
+            "enableFullscreen" : true,
+            "titleStyle" : {
+              "fontSize" : "24px",
+              "fontWeight" : 700,
+              "padding" : "5px 10px 5px 0px",
+              "height" : "34px"
+            },
+            "useDashboardTimewindow" : false,
+            "showLegend" : false,
+            "datasources" : [ {
+              "type" : "entity",
+              "name" : null,
+              "entityAliasId" : "91dc9422-ec87-4a99-be03-1eee92b1d4f0",
+              "filterId" : null,
+              "dataKeys" : [ {
+                "name" : "name",
+                "type" : "entityField",
+                "label" : "Name",
+                "color" : "#9c27b0",
+                "settings" : {
+                  "columnWidth" : "0px",
+                  "useCellStyleFunction" : false,
+                  "cellStyleFunction" : "",
+                  "useCellContentFunction" : false,
+                  "cellContentFunction" : "",
+                  "defaultColumnVisibility" : "visible",
+                  "columnSelectionToDisplay" : "enabled"
+                },
+                "_hash" : 0.26006066953657436
+              }, {
+                "name" : "label",
+                "type" : "entityField",
+                "label" : "Label",
+                "color" : "#8bc34a",
+                "settings" : {
+                  "columnWidth" : "0px",
+                  "useCellStyleFunction" : false,
+                  "cellStyleFunction" : "",
+                  "useCellContentFunction" : false,
+                  "cellContentFunction" : "",
+                  "defaultColumnVisibility" : "visible",
+                  "columnSelectionToDisplay" : "enabled"
+                },
+                "_hash" : 0.4950721185722333
+              }, {
+                "name" : "status",
+                "type" : "timeseries",
+                "label" : "Status",
+                "color" : "#2196f3",
+                "settings" : {
+                  "columnWidth" : "0px",
+                  "useCellStyleFunction" : false,
+                  "cellStyleFunction" : "",
+                  "useCellContentFunction" : true,
+                  "defaultColumnVisibility" : "visible",
+                  "columnSelectionToDisplay" : "enabled",
+                  "cellContentFunction" : "var status = value;\n\nvar stateSvg = getStateSvg(status);\nvar encodedStateSvg = encodeURIComponent(stateSvg);\nvar stateSvgUrl = 'data:image/svg+xml,' + encodedStateSvg;\nvar stateLabel = status;\n\nreturn '<span>'+\n           '<img style=\"vertical-align: middle;\" class=\"mat-icon\" src=\"'+ stateSvgUrl +'\">' +\n           '<span style=\"vertical-align: middle; padding-left: 8px;\">'+ stateLabel +'</span>' +\n       '</span>';\n            \nfunction getStateSvg(status) {\n    switch (status) {\n        case 'Broken':\n            return '<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">' +\n                   '<circle cx=\"10\" cy=\"10\" r=\"6\" fill=\"#E64A19\"/>' +\n                   '</svg>';\n        case 'At the stop':            \n            return '<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">' +\n                   '<circle cx=\"10\" cy=\"10\" r=\"6\" fill=\"#D5C21B\"/>' +\n                   '</svg>';\n        case 'On route':            \n            return '<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">' +\n                   '<circle cx=\"10\" cy=\"10\" r=\"6\" fill=\"#1F8B4D\"/>' +\n                   '</svg>';\n        case 'Refueling':            \n            return '<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">' +\n                   '<circle cx=\"10\" cy=\"10\" r=\"6\" fill=\"#4A8AEC\"/>' +\n                   '</svg>';                   \n        default:\n            return '<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">' +\n                   '<circle cx=\"10\" cy=\"10\" r=\"6\" fill=\"#AAAAAA\"/>' +\n                   '</svg>';\n    }\n}\n"
+                },
+                "_hash" : 0.8931945617284547,
+                "units" : null,
+                "decimals" : null,
+                "funcBody" : null,
+                "usePostProcessing" : null,
+                "postFuncBody" : null
+              }, {
+                "name" : "speed",
+                "type" : "timeseries",
+                "label" : "Speed, MPH",
+                "color" : "#4caf50",
+                "settings" : {
+                  "columnWidth" : "0px",
+                  "useCellStyleFunction" : false,
+                  "cellStyleFunction" : "",
+                  "useCellContentFunction" : false,
+                  "cellContentFunction" : "",
+                  "defaultColumnVisibility" : "visible",
+                  "columnSelectionToDisplay" : "enabled"
+                },
+                "_hash" : 0.5024093892530015,
+                "units" : null,
+                "decimals" : 0,
+                "funcBody" : null,
+                "usePostProcessing" : null,
+                "postFuncBody" : null
+              }, {
+                "name" : "fuel",
+                "type" : "timeseries",
+                "label" : "Fuel level, %",
+                "color" : "#607d8b",
+                "settings" : {
+                  "columnWidth" : "0px",
+                  "useCellStyleFunction" : false,
+                  "cellStyleFunction" : "",
+                  "useCellContentFunction" : false,
+                  "cellContentFunction" : "",
+                  "defaultColumnVisibility" : "visible",
+                  "columnSelectionToDisplay" : "enabled"
+                },
+                "_hash" : 0.8245998789088063,
+                "units" : null,
+                "decimals" : 0,
+                "funcBody" : null,
+                "usePostProcessing" : null,
+                "postFuncBody" : null
+              } ]
+            } ],
+            "showTitleIcon" : false,
+            "titleTooltip" : "",
+            "widgetStyle" : { },
+            "widgetCss" : "",
+            "noDataDisplayMessage" : "",
+            "actions" : {
+              "rowClick" : [ {
+                "name" : "Open bus details",
+                "icon" : "more_horiz",
+                "useShowWidgetActionFunction" : null,
+                "showWidgetActionFunction" : "return true;",
+                "type" : "openDashboardState",
+                "targetDashboardStateId" : "bus",
+                "setEntityId" : true,
+                "stateEntityParamName" : null,
+                "openRightLayout" : false,
+                "openInSeparateDialog" : false,
+                "openInPopover" : false,
+                "id" : "e2c3e168-19c1-78c5-2503-36ad30729352"
+              } ]
+            },
+            "pageSize" : 1024
+          },
+          "row" : 0,
+          "col" : 0,
+          "id" : "f931ab44-35dc-df6d-c4e5-5daf7b78c646",
+          "typeFullFqn" : "system.cards.entities_table"
+        },
+        "cab57d81-8170-87b5-d16f-08da296c43e8" : {
+          "type" : "alarm",
+          "sizeX" : 10.5,
+          "sizeY" : 6.5,
+          "config" : {
+            "timewindow" : {
+              "realtime" : {
+                "interval" : 1000,
+                "timewindowMs" : 86400000
+              },
+              "aggregation" : {
+                "type" : "NONE",
+                "limit" : 200
+              }
+            },
+            "showTitle" : true,
+            "backgroundColor" : "rgb(255, 255, 255)",
+            "color" : "rgba(0, 0, 0, 0.87)",
+            "padding" : "4px",
+            "settings" : {
+              "enableSelection" : true,
+              "enableSearch" : true,
+              "displayDetails" : true,
+              "allowAcknowledgment" : true,
+              "allowClear" : true,
+              "displayPagination" : true,
+              "defaultPageSize" : 10,
+              "defaultSortOrder" : "-startTime",
+              "enableSelectColumnDisplay" : true,
+              "enableStickyAction" : false,
+              "enableFilter" : true,
+              "enableStickyHeader" : true,
+              "reserveSpaceForHiddenAction" : "true",
+              "useRowStyleFunction" : false,
+              "alarmsTitle" : "Alarms"
+            },
+            "title" : "New Alarms table",
+            "dropShadow" : true,
+            "enableFullscreen" : true,
+            "titleStyle" : {
+              "fontSize" : "24px",
+              "fontWeight" : 700,
+              "padding" : "5px 10px 5px 0px",
+              "height" : "40px"
+            },
+            "useDashboardTimewindow" : false,
+            "showLegend" : false,
+            "alarmSource" : {
+              "type" : "entity",
+              "name" : null,
+              "entityAliasId" : "91dc9422-ec87-4a99-be03-1eee92b1d4f0",
+              "filterId" : null,
+              "dataKeys" : [ {
+                "name" : "startTime",
+                "type" : "alarm",
+                "label" : "Start time",
+                "color" : "#2196f3",
+                "settings" : {
+                  "useCellStyleFunction" : false,
+                  "cellStyleFunction" : "",
+                  "useCellContentFunction" : false,
+                  "cellContentFunction" : "",
+                  "columnWidth" : "0px",
+                  "defaultColumnVisibility" : "visible",
+                  "columnSelectionToDisplay" : "enabled"
+                },
+                "_hash" : 0.021092237451093787,
+                "units" : null,
+                "decimals" : null,
+                "funcBody" : null,
+                "usePostProcessing" : null,
+                "postFuncBody" : null
+              }, {
+                "name" : "originator",
+                "type" : "alarm",
+                "label" : "Originator",
+                "color" : "#4caf50",
+                "settings" : {
+                  "useCellStyleFunction" : false,
+                  "cellStyleFunction" : "",
+                  "useCellContentFunction" : false,
+                  "cellContentFunction" : ""
+                },
+                "_hash" : 0.2780007688856758
+              }, {
+                "name" : "type",
+                "type" : "alarm",
+                "label" : "Type",
+                "color" : "#f44336",
+                "settings" : {
+                  "useCellStyleFunction" : false,
+                  "cellStyleFunction" : "",
+                  "useCellContentFunction" : false,
+                  "cellContentFunction" : "",
+                  "columnWidth" : "120px",
+                  "defaultColumnVisibility" : "visible",
+                  "columnSelectionToDisplay" : "enabled"
+                },
+                "_hash" : 0.7323586880398418,
+                "units" : null,
+                "decimals" : null,
+                "funcBody" : null,
+                "usePostProcessing" : null,
+                "postFuncBody" : null
+              }, {
+                "name" : "severity",
+                "type" : "alarm",
+                "label" : "Severity",
+                "color" : "#ffc107",
+                "settings" : {
+                  "useCellStyleFunction" : false,
+                  "useCellContentFunction" : false
+                },
+                "_hash" : 0.09927019860088193
+              }, {
+                "name" : "status",
+                "type" : "alarm",
+                "label" : "Status",
+                "color" : "#607d8b",
+                "settings" : {
+                  "useCellStyleFunction" : false,
+                  "cellStyleFunction" : "",
+                  "useCellContentFunction" : false,
+                  "cellContentFunction" : ""
+                },
+                "_hash" : 0.6588418951443418
+              } ]
+            },
+            "alarmsPollingInterval" : 5,
+            "showTitleIcon" : false,
+            "titleIcon" : "more_horiz",
+            "iconColor" : "rgba(0, 0, 0, 0.87)",
+            "iconSize" : "24px",
+            "titleTooltip" : "",
+            "widgetStyle" : { },
+            "displayTimewindow" : true,
+            "actions" : {
+              "rowClick" : [ {
+                "name" : "Bus details",
+                "icon" : "more_horiz",
+                "useShowWidgetActionFunction" : null,
+                "showWidgetActionFunction" : "return true;",
+                "type" : "openDashboardState",
+                "targetDashboardStateId" : "bus",
+                "setEntityId" : true,
+                "stateEntityParamName" : null,
+                "openRightLayout" : false,
+                "openInSeparateDialog" : false,
+                "openInPopover" : false,
+                "id" : "79f4347f-f46e-b4cb-94c9-7dfbecc57642"
+              } ]
+            },
+            "datasources" : [ ],
+            "widgetCss" : ".tb-widget-container div.tb-widget .tb-widget-title {\n    max-height: 85px !important;\n}",
+            "noDataDisplayMessage" : "",
+            "alarmFilterConfig" : {
+              "statusList" : [ "ACTIVE" ],
+              "severityList" : [ ],
+              "typeList" : [ ],
+              "searchPropagatedAlarms" : false
+            },
+            "pageSize" : 1024
+          },
+          "row" : 0,
+          "col" : 0,
+          "id" : "cab57d81-8170-87b5-d16f-08da296c43e8",
+          "typeFullFqn" : "system.alarm_widgets.alarms_table"
+        },
+        "b25897b5-505f-1ff2-ffad-4950c2cdf052" : {
+          "type" : "latest",
+          "sizeX" : 5,
+          "sizeY" : 3.5,
+          "config" : {
+            "datasources" : [ {
+              "type" : "entity",
+              "name" : null,
+              "entityAliasId" : "4bb50567-53dc-78d3-c026-4a0f38556dd4",
+              "filterId" : null,
+              "dataKeys" : [ ]
+            } ],
+            "timewindow" : {
+              "displayValue" : "",
+              "selectedTab" : 0,
+              "realtime" : {
+                "realtimeType" : 1,
+                "interval" : 1000,
+                "timewindowMs" : 60000,
+                "quickInterval" : "CURRENT_DAY",
+                "hideInterval" : false,
+                "hideLastInterval" : false,
+                "hideQuickInterval" : false
+              },
+              "history" : {
+                "historyType" : 0,
+                "interval" : 1000,
+                "timewindowMs" : 60000,
+                "fixedTimewindow" : {
+                  "startTimeMs" : 1682928998568,
+                  "endTimeMs" : 1683015398568
+                },
+                "quickInterval" : "CURRENT_DAY",
+                "hideInterval" : false,
+                "hideLastInterval" : false,
+                "hideFixedInterval" : false,
+                "hideQuickInterval" : false
+              },
+              "aggregation" : {
+                "type" : "AVG",
+                "limit" : 2500
+              }
+            },
+            "showTitle" : false,
+            "backgroundColor" : "#fff",
+            "color" : "rgba(0, 0, 0, 0.87)",
+            "padding" : "0px",
+            "settings" : {
+              "useMarkdownTextFunction" : true,
+              "markdownTextPattern" : "# Markdown/HTML card \\n - **Current entity**: **${entityName}**. \\n - **Current value**: **${Random}**.",
+              "markdownTextFunction" : "var darkMode = $('.tb-dashboard-page').hasClass('dark');\nvar darkModeExpression = darkMode ? '(darkMode !== false)' : 'darkMode';\n\nreturn '<div class=\"header flex flex-row items-stretch justify-start gap-2\">' +\n        '<div class=\"flex flex-col items-stretch justify-center\"><button id=\"go-back\" matTooltip=\"Go back\" type=\"button\" mat-icon-button><mat-icon>arrow_back</mat-icon></button></div>' +\n        '<div class=\"flex flex-1 flex-col items-stretch justify-center\">' +\n           '<div class=\"title\">${entityLabel}</div>' +\n           '<div class=\"subtitle\">${entityName}</div>' +\n        '</div>' +\n        '<div class=\"flex flex-col items-stretch justify-center\" style=\"padding-right: 24px;\">' +\n            '<button (click)=\"darkMode = '+darkModeExpression+' ? false : true\" id=\"dark-mode-switch\" mat-icon-button matTooltip=\"{{ '+ darkModeExpression +' ? &quot;Switch to light mode&quot; : &quot;Switch to dark mode&quot; }}\"><mat-icon>{{ '+ darkModeExpression +' ? &quot;light_mode&quot; : &quot;dark_mode&quot; }}</mat-icon></button>' +\n        '</div>' +\n'</div>';\n",
+              "applyDefaultMarkdownStyle" : false,
+              "markdownCss" : ".header {\n    height: 100%;\n    padding: 0 0 0 16px;\n} \n\n.header .mat-icon.title-icon {\n    width: 40px;\n    height: 40px;\n}\n\n.header .title {\n    font-size: 18px;\n    font-weight: 500;\n    color: #28232D;\n}\n\n.header .subtitle {\n    font-size: 13px;\n    font-weight: normal;\n    color: #757575;\n}\n"
+            },
+            "title" : "New Markdown/HTML Card",
+            "showTitleIcon" : false,
+            "iconColor" : "rgba(0, 0, 0, 0.87)",
+            "iconSize" : "24px",
+            "titleTooltip" : "",
+            "dropShadow" : true,
+            "enableFullscreen" : false,
+            "widgetStyle" : { },
+            "titleStyle" : {
+              "fontSize" : "16px",
+              "fontWeight" : 400
+            },
+            "showLegend" : false,
+            "widgetCss" : "",
+            "noDataDisplayMessage" : "",
+            "actions" : {
+              "elementClick" : [ {
+                "name" : "go-back",
+                "icon" : "more_horiz",
+                "useShowWidgetActionFunction" : null,
+                "showWidgetActionFunction" : "return true;",
+                "type" : "custom",
+                "customFunction" : "widgetContext.stateController.navigatePrevState(0);",
+                "openInSeparateDialog" : false,
+                "openInPopover" : false,
+                "id" : "fd666ec9-cd5a-af01-47e1-b7e53911f87a"
+              }, {
+                "name" : "dark-mode-switch",
+                "icon" : "more_horiz",
+                "useShowWidgetActionFunction" : null,
+                "showWidgetActionFunction" : "return true;",
+                "type" : "custom",
+                "customFunction" : "var dashboardPage = $('.tb-dashboard-page')[0];\n$(dashboardPage).toggleClass('dark');",
+                "openInSeparateDialog" : false,
+                "openInPopover" : false,
+                "id" : "4431866e-87da-0a87-0fe0-1bd7bd404081"
+              } ]
+            }
+          },
+          "row" : 0,
+          "col" : 0,
+          "id" : "b25897b5-505f-1ff2-ffad-4950c2cdf052",
+          "typeFullFqn" : "system.cards.markdown_card"
+        },
+        "79dd0661-c0b5-35aa-f185-f82b336c0c5d" : {
+          "type" : "latest",
+          "sizeX" : 5,
+          "sizeY" : 3.5,
+          "config" : {
+            "datasources" : [ ],
+            "timewindow" : {
+              "displayValue" : "",
+              "selectedTab" : 0,
+              "realtime" : {
+                "realtimeType" : 1,
+                "interval" : 1000,
+                "timewindowMs" : 60000,
+                "quickInterval" : "CURRENT_DAY",
+                "hideInterval" : false,
+                "hideLastInterval" : false,
+                "hideQuickInterval" : false
+              },
+              "history" : {
+                "historyType" : 0,
+                "interval" : 1000,
+                "timewindowMs" : 60000,
+                "fixedTimewindow" : {
+                  "startTimeMs" : 1682928998568,
+                  "endTimeMs" : 1683015398568
+                },
+                "quickInterval" : "CURRENT_DAY",
+                "hideInterval" : false,
+                "hideLastInterval" : false,
+                "hideFixedInterval" : false,
+                "hideQuickInterval" : false
+              },
+              "aggregation" : {
+                "type" : "AVG",
+                "limit" : 2500
+              }
+            },
+            "showTitle" : false,
+            "backgroundColor" : "#fff",
+            "color" : "rgba(0, 0, 0, 0.87)",
+            "padding" : "0px",
+            "settings" : {
+              "useMarkdownTextFunction" : true,
+              "markdownTextPattern" : "# Markdown/HTML card \\n - **Current entity**: **${entityName}**. \\n - **Current value**: **${Random}**.",
+              "markdownTextFunction" : "var darkMode = $('.tb-dashboard-page').hasClass('dark');\nvar darkModeExpression = darkMode ? '(darkMode !== false)' : 'darkMode';\n\nreturn '<div class=\"header flex flex-col items-center justify-around gt-sm:flex-row gt-sm:items-stretch gt-sm:justify-start gt-sm:gap-6\">' +\n        '<div class=\"flex flex-col items-stretch justify-center\">' +\n           '<div class=\"title\">Smart bus tracking</div>' +\n        '</div>' +\n        '<div class=\"flex flex-col gt-sm:flex-1 items-center justify-around gap-4 gt-sm:flex-row gt-sm:gap-2 gt-sm:items-center gt-sm:justify-start\">' +\n           '<div class=\"powered-by\">Powered by ThingsBoard opensource IoT platform.</div>' +\n           '<div class=\"flex flex-row gap-2 items-center justify-start\">' +\n              '<button id=\"try-it-now\" mat-raised-button color=\"primary\">Try it now</button><div class=\"powered-by\">OR</div><a mat-raised-button color=\"primary\" href=\"https://thingsboard.io/docs/user-guide/install/installation-options/\" target=\"_blank\">Install</a>' +\n           '</div>' +\n        '</div>' +\n        '<div class=\"flex flex-col items-stretch justify-center\" style=\"padding-right: 24px;\">' +\n            '<button (click)=\"darkMode = '+darkModeExpression+' ? false : true\" id=\"dark-mode-switch\" mat-icon-button matTooltip=\"{{ '+ darkModeExpression +' ? &quot;Switch to light mode&quot; : &quot;Switch to dark mode&quot; }}\"><mat-icon>{{ '+ darkModeExpression +' ? &quot;light_mode&quot; : &quot;dark_mode&quot; }}</mat-icon></button>' +\n        '</div>' +\n    '</div>';\n    ",
+              "applyDefaultMarkdownStyle" : false,
+              "markdownCss" : ".header {\n    height: 100%;\n    padding: 0 0 0 24px;\n    justify-content: space-around;\n} \n\n@media (min-width: 960px) {\n    .header {\n        gap: 24px;\n    }\n}\n\n.header .mat-icon.title-icon {\n    width: 40px;\n    height: 40px;\n}\n\n.header .title {\n    font-size: 24px;\n    font-weight: 500;\n    color: #28232D;\n}\n\n.header .subtitle {\n    font-size: 13px;\n    font-weight: normal;\n    color: #757575;\n}\n"
+            },
+            "title" : "New Markdown/HTML Card",
+            "showTitleIcon" : false,
+            "iconColor" : "rgba(0, 0, 0, 0.87)",
+            "iconSize" : "24px",
+            "titleTooltip" : "",
+            "dropShadow" : true,
+            "enableFullscreen" : false,
+            "widgetStyle" : { },
+            "titleStyle" : {
+              "fontSize" : "16px",
+              "fontWeight" : 400
+            },
+            "showLegend" : false,
+            "widgetCss" : ".tb-markdown-view a:hover {\n    text-decoration: none;\n}",
+            "noDataDisplayMessage" : "",
+            "actions" : {
+              "elementClick" : [ {
+                "name" : "dark-mode-switch",
+                "icon" : "more_horiz",
+                "useShowWidgetActionFunction" : null,
+                "showWidgetActionFunction" : "return true;",
+                "type" : "custom",
+                "customFunction" : "var dashboardPage = $('.tb-dashboard-page')[0];\n$(dashboardPage).toggleClass('dark');",
+                "openInSeparateDialog" : false,
+                "openInPopover" : false,
+                "id" : "fd666ec9-cd5a-af01-47e1-b7e53911f87a"
+              }, {
+                "name" : "try-it-now",
+                "icon" : "more_horiz",
+                "useShowWidgetActionFunction" : null,
+                "showWidgetActionFunction" : "return true;",
+                "type" : "custom",
+                "customFunction" : "localStorage.removeItem('jwt_token');\nlocalStorage.removeItem('jwt_token_expiration');\nlocalStorage.removeItem('refresh_token');\nlocalStorage.removeItem('refresh_token_expiration');\nwindow.open('https://demo.thingsboard.io/signup', '_blank');\n",
+                "openInSeparateDialog" : false,
+                "openInPopover" : false,
+                "id" : "f6422a64-4cd4-506d-d03e-fafbf62db69b"
+              } ]
+            }
+          },
+          "row" : 0,
+          "col" : 0,
+          "id" : "79dd0661-c0b5-35aa-f185-f82b336c0c5d",
+          "typeFullFqn" : "system.cards.markdown_card"
+        },
+        "ee11025a-a21c-d9e8-485d-6c3fb87f140e" : {
+          "type" : "alarm",
+          "sizeX" : 10.5,
+          "sizeY" : 6.5,
+          "config" : {
+            "timewindow" : {
+              "realtime" : {
+                "interval" : 1000,
+                "timewindowMs" : 86400000
+              },
+              "aggregation" : {
+                "type" : "NONE",
+                "limit" : 200
+              }
+            },
+            "showTitle" : true,
+            "backgroundColor" : "rgb(255, 255, 255)",
+            "color" : "rgba(0, 0, 0, 0.87)",
+            "padding" : "0px",
+            "settings" : {
+              "enableSelection" : true,
+              "enableSearch" : true,
+              "displayDetails" : true,
+              "allowAcknowledgment" : true,
+              "allowClear" : true,
+              "displayPagination" : true,
+              "defaultPageSize" : 10,
+              "defaultSortOrder" : "-startTime",
+              "enableSelectColumnDisplay" : true,
+              "enableStickyAction" : false,
+              "enableFilter" : true,
+              "enableStickyHeader" : true,
+              "reserveSpaceForHiddenAction" : "true",
+              "useRowStyleFunction" : false,
+              "alarmsTitle" : "${entityName}: Alarms"
+            },
+            "title" : "Alarms",
+            "dropShadow" : false,
+            "enableFullscreen" : false,
+            "titleStyle" : {
+              "fontSize" : "24px",
+              "fontWeight" : 700,
+              "padding" : "5px 10px 5px 10px",
+              "height" : "40px"
+            },
+            "useDashboardTimewindow" : false,
+            "showLegend" : false,
+            "alarmSource" : {
+              "type" : "entity",
+              "name" : null,
+              "entityAliasId" : "4bb50567-53dc-78d3-c026-4a0f38556dd4",
+              "filterId" : null,
+              "dataKeys" : [ {
+                "name" : "startTime",
+                "type" : "alarm",
+                "label" : "Start time",
+                "color" : "#2196f3",
+                "settings" : {
+                  "useCellStyleFunction" : false,
+                  "cellStyleFunction" : "",
+                  "useCellContentFunction" : false,
+                  "cellContentFunction" : "",
+                  "columnWidth" : "0px",
+                  "defaultColumnVisibility" : "visible",
+                  "columnSelectionToDisplay" : "enabled"
+                },
+                "_hash" : 0.021092237451093787,
+                "units" : null,
+                "decimals" : null,
+                "funcBody" : null,
+                "usePostProcessing" : null,
+                "postFuncBody" : null
+              }, {
+                "name" : "type",
+                "type" : "alarm",
+                "label" : "Type",
+                "color" : "#f44336",
+                "settings" : {
+                  "useCellStyleFunction" : false,
+                  "cellStyleFunction" : "",
+                  "useCellContentFunction" : false,
+                  "cellContentFunction" : "",
+                  "columnWidth" : "120px",
+                  "defaultColumnVisibility" : "visible",
+                  "columnSelectionToDisplay" : "enabled"
+                },
+                "_hash" : 0.7323586880398418,
+                "units" : null,
+                "decimals" : null,
+                "funcBody" : null,
+                "usePostProcessing" : null,
+                "postFuncBody" : null
+              }, {
+                "name" : "severity",
+                "type" : "alarm",
+                "label" : "Severity",
+                "color" : "#ffc107",
+                "settings" : {
+                  "useCellStyleFunction" : false,
+                  "useCellContentFunction" : false
+                },
+                "_hash" : 0.09927019860088193
+              }, {
+                "name" : "status",
+                "type" : "alarm",
+                "label" : "Status",
+                "color" : "#607d8b",
+                "settings" : {
+                  "useCellStyleFunction" : false,
+                  "cellStyleFunction" : "",
+                  "useCellContentFunction" : false,
+                  "cellContentFunction" : ""
+                },
+                "_hash" : 0.6588418951443418
+              } ]
+            },
+            "alarmsPollingInterval" : 5,
+            "showTitleIcon" : false,
+            "titleIcon" : "more_horiz",
+            "iconColor" : "rgba(0, 0, 0, 0.87)",
+            "iconSize" : "24px",
+            "titleTooltip" : "",
+            "widgetStyle" : { },
+            "displayTimewindow" : true,
+            "actions" : { },
+            "datasources" : [ ],
+            "widgetCss" : ".tb-widget-container div.tb-widget .tb-widget-title {\n    max-height: 100px !important;\n}",
+            "noDataDisplayMessage" : "",
+            "alarmFilterConfig" : {
+              "statusList" : [ "ACTIVE" ],
+              "severityList" : [ ],
+              "typeList" : [ ],
+              "searchPropagatedAlarms" : false
+            },
+            "pageSize" : 1024
+          },
+          "row" : 0,
+          "col" : 0,
+          "id" : "ee11025a-a21c-d9e8-485d-6c3fb87f140e",
+          "typeFullFqn" : "system.alarm_widgets.alarms_table"
+        },
+        "6657fa98-b8f5-4ab4-ea6b-ccc5d19cce0e" : {
+          "type" : "latest",
+          "sizeX" : 5,
+          "sizeY" : 3.5,
+          "config" : {
+            "datasources" : [ {
+              "type" : "entity",
+              "name" : null,
+              "entityAliasId" : "4bb50567-53dc-78d3-c026-4a0f38556dd4",
+              "filterId" : null,
+              "dataKeys" : [ {
+                "name" : "label",
+                "type" : "entityField",
+                "label" : "Label",
+                "color" : "#2196f3",
+                "settings" : { },
+                "_hash" : 0.617751796931165
+              }, {
+                "name" : "status",
+                "type" : "timeseries",
+                "label" : "status",
+                "color" : "#4caf50",
+                "settings" : { },
+                "_hash" : 0.9319366220155356
+              }, {
+                "name" : "speed",
+                "type" : "timeseries",
+                "label" : "speed",
+                "color" : "#f44336",
+                "settings" : { },
+                "_hash" : 0.859409412699992
+              }, {
+                "name" : "fuel",
+                "type" : "timeseries",
+                "label" : "fuel",
+                "color" : "#ffc107",
+                "settings" : { },
+                "_hash" : 0.4700692048196138
+              } ]
+            } ],
+            "timewindow" : {
+              "displayValue" : "",
+              "selectedTab" : 0,
+              "realtime" : {
+                "realtimeType" : 1,
+                "interval" : 1000,
+                "timewindowMs" : 60000,
+                "quickInterval" : "CURRENT_DAY",
+                "hideInterval" : false,
+                "hideLastInterval" : false,
+                "hideQuickInterval" : false
+              },
+              "history" : {
+                "historyType" : 0,
+                "interval" : 1000,
+                "timewindowMs" : 60000,
+                "fixedTimewindow" : {
+                  "startTimeMs" : 1682928998568,
+                  "endTimeMs" : 1683015398568
+                },
+                "quickInterval" : "CURRENT_DAY",
+                "hideInterval" : false,
+                "hideLastInterval" : false,
+                "hideFixedInterval" : false,
+                "hideQuickInterval" : false
+              },
+              "aggregation" : {
+                "type" : "AVG",
+                "limit" : 2500
+              }
+            },
+            "showTitle" : false,
+            "backgroundColor" : "#fff",
+            "color" : "rgba(0, 0, 0, 0.87)",
+            "padding" : "0px",
+            "settings" : {
+              "useMarkdownTextFunction" : true,
+              "markdownTextPattern" : "# Markdown/HTML card \\n - **Current entity**: **${entityName}**. \\n - **Current value**: **${Random}**.",
+              "markdownTextFunction" : "var label, status, speed, fuel;\nif (data && data.length) {\n    label = data[0]['Label'];\n    status = data[0]['status'];\n    speed = data[0]['speed'];\n    fuel = data[0]['fuel'];\n} else {\n    label = 'N/A';\n    status = 'N/A';\n    speed = 'N/A';\n    fuel = 'N/A';\n}\n\nreturn '<div class=\"main-layout flex flex-col\" style=\"width: 100%; height: 100%;\">' +\n          '<div class=\"params flex flex-row\">' +\n              '<div class=\"param-cell flex flex-1 flex-col gap-2\">' +\n                '<div class=\"param-title\">Label: </div>' +\n                '<div class=\"param\">'+ label +'</div>' +\n              '</div>' +\n              '<div class=\"param-cell flex flex-1 flex-col gap-2\">' +\n                '<div class=\"param-title\">Status: </div>' +\n                '<div class=\"param\">'+ getStatusHtml(status) +'</div>' +\n              '</div>' +\n              '<div class=\"param-cell flex flex-1 flex-col gap-2\">' +\n                '<div class=\"param-title\">Speed: </div>' +\n                '<div class=\"param flex flex-row items-center justify-start\"><mat-icon>speed</mat-icon><span style=\"padding-left: 8px; padding-right: 8px;\">' + Number(speed).toFixed(0) + ' MPH</span></div>' +\n              '</div>' +\n              '<div class=\"param-cell flex flex-col gap-2\">' +\n                '<div class=\"param-title\">Fuel level: </div>' +\n                '<div class=\"param\">'+ getFuelLevelHtml(fuel) +'</div>' +\n              '</div>' +\n          '</div>' +\n       '<div>';\n\nfunction getStatusHtml(status) {\n    var statusSvg = getStatusSvg(status);\n    var encodedStatusSvg = encodeURIComponent(statusSvg);\n    var statusSvgUrl = 'data:image/svg+xml,' + encodedStatusSvg;\n    return '<div class=\"flex flex-row items-center justify-start\">'+\n           '<img class=\"mat-icon\" src=\"'+ statusSvgUrl +'\">' +\n           '<span style=\"padding-left: 8px;\">'+ status +'</span>' +\n    '</div>';\n}\n\nfunction getFuelLevelHtml(fuelLevel) {\n    var fuelLevelNumber = Number(fuelLevel);\n    var fuelLevelSvg = getFuelLevelSvg(fuelLevelNumber);\n    var encodedFuelLevelSvg = encodeURIComponent(fuelLevelSvg);\n    var fuelLevelSvgUrl = 'data:image/svg+xml,' + encodedFuelLevelSvg;\n    return '<div class=\"flex flex-row items-center justify-start\">' +\n              '<img class=\"mat-icon\" src=\"'+ fuelLevelSvgUrl +'\">' +\n              '<span style=\"padding-left: 8px; padding-right: 8px;\">' + fuelLevelNumber.toFixed(0) + '%</span>' +\n            '</div>';\n}\n\nfunction getStatusSvg(status) {\n    switch (status) {\n        case 'Broken':\n            return '<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">' +\n                   '<circle cx=\"10\" cy=\"10\" r=\"6\" fill=\"#E64A19\"/>' +\n                   '</svg>';\n        case 'At the stop':            \n            return '<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">' +\n                   '<circle cx=\"10\" cy=\"10\" r=\"6\" fill=\"#D5C21B\"/>' +\n                   '</svg>';\n        case 'On route':            \n            return '<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">' +\n                   '<circle cx=\"10\" cy=\"10\" r=\"6\" fill=\"#1F8B4D\"/>' +\n                   '</svg>';\n        case 'Refueling':            \n            return '<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">' +\n                   '<circle cx=\"10\" cy=\"10\" r=\"6\" fill=\"#4A8AEC\"/>' +\n                   '</svg>';                   \n        default:\n            return '<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">' +\n                   '<circle cx=\"10\" cy=\"10\" r=\"6\" fill=\"#AAAAAA\"/>' +\n                   '</svg>';\n    }\n}\n\nfunction getFuelLevelSvg(fuelLevel) {\n    var fuelLevelSvg;\n    if (fuelLevel <= 5) {\n        fuelLevelSvg = '<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11 1C9.89544 1 9.00001 1.89543 9.00001 3H5C3.89543 3 3 3.89543 3 5V16C3 17.1046 3.89543 18 5 18H15C16.1046 18 17 17.1046 17 16L17 3C17 1.89543 16.1046 1 15 1H11ZM15 2H11C10.4477 2 10 2.44772 10 3H16C16 2.44772 15.5523 2 15 ' +\n                          '2ZM16 16V4.00001H7.32843C7.06321 4.00001 6.80886 4.10537 6.62132 4.29291L4.29289 6.62133C4.10536 6.80887 4 7.06322 4 7.32844V16C4 16.5523 4.44772 17 5 17H15C15.5523 17 16 16.5523 16 16Z\" fill=\"#E64A19\"/>';\n    } else if (fuelLevel <= 35) {\n        fuelLevelSvg = '<path d=\"M15 14H5V16H15V14Z\" fill=\"#E64A19\"/>' +\n                       '<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11 1C9.89544 1 9.00001 1.89543 9.00001 3H5C3.89543 3 3 3.89543 3 5V16C3 17.1046 3.89543 18 5 18H15C16.1046 18 17 17.1046 17 16L17 3C17 1.89543 16.1046 1 15 1H11ZM15 2H11C10.4477 2 10 2.44772 10 3H16C16 2.44772 15.5523 2 15 ' +\n                       '2ZM16 4.00001V16C16 16.5523 15.5523 17 15 17H5C4.44772 17 4 16.5523 4 16V7.32844C4 7.06322 4.10536 6.80887 4.29289 6.62133L6.62132 4.29291C6.80886 4.10537 7.06321 4.00001 7.32843 4.00001H16Z\" fill=\"#E64A19\"/>';\n    } else if (fuelLevel <= 65) {\n        fuelLevelSvg = '<path d=\"M5 14H15V16H5V14Z\" fill=\"#D4C21B\"/>' +\n                       '<path d=\"M15 11H5V13H15V11Z\" fill=\"#D4C21B\"/>' +\n                       '<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11 1C9.89544 1 9.00001 1.89543 9.00001 3H5C3.89543 3 3 3.89543 3 5V16C3 17.1046 3.89543 18 5 18H15C16.1046 18 17 17.1046 17 16L17 3C17 1.89543 16.1046 1 15 1H11ZM15 2H11C10.4477 2 10 2.44772 10 3H16C16 2.44772 15.5523 2 15 ' +\n                       '2ZM16 16V4.00001H7.32843C7.06321 4.00001 6.80886 4.10537 6.62132 4.29291L4.29289 6.62133C4.10536 6.80887 4 7.06322 4 7.32844V16C4 16.5523 4.44772 17 5 17H15C15.5523 17 16 16.5523 16 16Z\" fill=\"#D4C21B\"/>';\n    } else if (fuelLevel <= 95) {\n        fuelLevelSvg = '<path d=\"M15 14H5V16H15V14Z\" fill=\"#1F8B4D\"/>' +\n                       '<path d=\"M5 11H15V13H5V11Z\" fill=\"#1F8B4D\"/>' +\n                       '<path d=\"M15 8H5V10H15V8Z\" fill=\"#1F8B4D\"/>' +\n                       '<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M11 1C9.89544 1 9.00001 1.89543 9.00001 3H5C3.89543 3 3 3.89543 3 5V16C3 17.1046 3.89543 18 5 18H15C16.1046 18 17 17.1046 17 16L17 3C17 1.89543 16.1046 1 15 1H11ZM15 2H11C10.4477 2 10 2.44772 10 3H16C16 2.44772 15.5523 2 15 ' +\n                       '2ZM16 4.00001V16C16 16.5523 15.5523 17 15 17H5C4.44772 17 4 16.5523 4 16V7.32844C4 7.06322 4.10536 6.80887 4.29289 6.62133L6.62132 4.29291C6.80886 4.10537 7.06321 4.00001 7.32843 4.00001H16Z\" fill=\"#1F8B4D\"/>';\n    } else {\n        fuelLevelSvg = '<path d=\"M15.0009 14H5.00095V16H15.0009V14Z\" fill=\"#1F8B4D\"/>' +\n                       '<path d=\"M5.00095 11H15.0009V13H5.00095V11Z\" fill=\"#1F8B4D\"/>' +\n                       '<path d=\"M15.0009 8H5.00095V10H15.0009V8Z\" fill=\"#1F8B4D\"/>' +\n                       '<path d=\"M7.50095 5H15.0009V7H5.50095L7.50095 5Z\" fill=\"#1F8B4D\"/>' +\n                       '<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M9.00095 3C9.00095 1.89543 9.89638 1 11.001 1H15.001C16.1055 1 17.001 1.89543 17.001 3L17.0009 16C17.0009 17.1046 16.1055 18 15.0009 18H5.00095C3.89638 18 3.00095 17.1046 3.00095 16V7.49915L3 7.5001V5.0001C3 3.89553 3.89543 ' +\n                       '3.0001 5 3.0001H7.31104L7.32938 3.00001L9.00095 3ZM11.001 2H15.001C15.5532 2 16.001 2.44772 16.001 3H10.001C10.001 2.44772 10.4487 2 11.001 2ZM16.0009 16V4.00001H7.32938C7.06416 4.00001 6.80981 4.10537 6.62227 4.29291L4.29384 6.62133C4.10631 6.80887 4.00095 7.06322 4.00095 ' +\n                       '7.32844V16C4.00095 16.5523 4.44866 17 5.00095 17H15.0009C15.5532 17 16.0009 16.5523 16.0009 16Z\" fill=\"#1F8B4D\"/>';\n    }\n    return '<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">' +\n              fuelLevelSvg +\n            '</svg>';\n}\n",
+              "applyDefaultMarkdownStyle" : false,
+              "markdownCss" : ".tb-markdown-view div, .tb-markdown-view p {\n    padding: 0;\n}\n\n.tb-markdown-view .params {\n    background-color: rgba(205, 205, 205, 0.15);\n    border-top-left-radius: 4px;\n    border-bottom-left-radius: 4px;\n    padding: 16px 0 16px 16px;\n    margin-bottom: 20px;\n}\n\n.tb-markdown-view .param-title {\n    font-size: 12px;\n    font-weight: normal;\n    color: #757575;\n    height: 14px;\n}\n\n.tb-markdown-view .param {\n    font-size: 12px;\n    font-weight: 500;\n    color: #212121;\n    line-height: 24px;\n    height: 24px;\n}\n"
+            },
+            "title" : "New Markdown/HTML Card",
+            "showTitleIcon" : false,
+            "iconColor" : "rgba(0, 0, 0, 0.87)",
+            "iconSize" : "24px",
+            "titleTooltip" : "",
+            "dropShadow" : false,
+            "enableFullscreen" : false,
+            "widgetStyle" : { },
+            "titleStyle" : {
+              "fontSize" : "16px",
+              "fontWeight" : 400
+            },
+            "showLegend" : false,
+            "widgetCss" : ".tb-widget-container > .tb-widget {\n    border: none !important;\n    border-radius: 0 !important;\n    box-shadow: none !important;\n}",
+            "noDataDisplayMessage" : "",
+            "actions" : {
+              "elementClick" : [ ]
+            },
+            "pageSize" : 1024
+          },
+          "row" : 0,
+          "col" : 0,
+          "id" : "6657fa98-b8f5-4ab4-ea6b-ccc5d19cce0e",
+          "typeFullFqn" : "system.cards.markdown_card"
+        },
+        "9a3908ff-b60f-6e91-219f-df8a85cdcf89" : {
+          "type" : "latest",
+          "sizeX" : 5,
+          "sizeY" : 3.5,
+          "config" : {
+            "datasources" : [ {
+              "type" : "entity",
+              "name" : null,
+              "entityAliasId" : "4bb50567-53dc-78d3-c026-4a0f38556dd4",
+              "filterId" : null,
+              "dataKeys" : [ ]
+            } ],
+            "timewindow" : {
+              "displayValue" : "",
+              "selectedTab" : 0,
+              "realtime" : {
+                "realtimeType" : 1,
+                "interval" : 1000,
+                "timewindowMs" : 60000,
+                "quickInterval" : "CURRENT_DAY",
+                "hideInterval" : false,
+                "hideLastInterval" : false,
+                "hideQuickInterval" : false
+              },
+              "history" : {
+                "historyType" : 0,
+                "interval" : 1000,
+                "timewindowMs" : 60000,
+                "fixedTimewindow" : {
+                  "startTimeMs" : 1682928998568,
+                  "endTimeMs" : 1683015398568
+                },
+                "quickInterval" : "CURRENT_DAY",
+                "hideInterval" : false,
+                "hideLastInterval" : false,
+                "hideFixedInterval" : false,
+                "hideQuickInterval" : false
+              },
+              "aggregation" : {
+                "type" : "AVG",
+                "limit" : 2500
+              }
+            },
+            "showTitle" : false,
+            "backgroundColor" : "#fff",
+            "color" : "rgba(0, 0, 0, 0.87)",
+            "padding" : "4px",
+            "settings" : {
+              "useMarkdownTextFunction" : false,
+              "markdownTextPattern" : "<div class=\"main-layout flex flex-col\" style=\"width: 100%; height: 100%;\">\n    <div class=\"title\">${entityName}: Info</div>\n    <div class=\"flex flex-row\" style=\"height: 95px;\">\n        <tb-dashboard-state class=\"flex-full\" style=\"max-width: 80%;\" [ctx]=\"ctx\" stateId=\"bus_card_header\"></tb-dashboard-state>\n        <tb-dashboard-state class=\"flex-full\" style=\"max-width: 20%;\" [ctx]=\"ctx\" stateId=\"fuel_level_button\"></tb-dashboard-state>\n    </div>\n    <tb-dashboard-state class=\"flex-1\" [ctx]=\"ctx\" stateId=\"bus_speed_history\"></tb-dashboard-state>\n    <mat-divider style=\"margin-top: 10px; margin-bottom: 10px;\"></mat-divider>\n    <tb-dashboard-state class=\"flex-1\" [ctx]=\"ctx\" stateId=\"bus_alarms\"></tb-dashboard-state>\n</div>\n",
+              "markdownTextFunction" : "return '# Some title\\\\n - Entity name: ' + data[0]['entityName'];",
+              "applyDefaultMarkdownStyle" : false,
+              "markdownCss" : ".tb-markdown-view .title {\n    padding: 10px 10px 10px 16px;\n    font-weight: 700;\n    font-size: 24px;\n}\n\n.tb-markdown-view div, .tb-markdown-view p {\n    line-height: normal;\n}\n\n.tb-markdown-view > div {\n    padding: 0;\n}\n\n.tb-markdown-view table {\n    border: none;\n    border-radius: 0px;\n    overflow: auto;\n}\n\n.tb-markdown-view .tb-widget-container > .tb-widget {\n    border-radius: 0px;\n}\n"
+            },
+            "title" : "New Markdown/HTML Card",
+            "showTitleIcon" : false,
+            "iconColor" : "rgba(0, 0, 0, 0.87)",
+            "iconSize" : "24px",
+            "titleTooltip" : "",
+            "dropShadow" : true,
+            "enableFullscreen" : false,
+            "widgetStyle" : { },
+            "titleStyle" : {
+              "fontSize" : "16px",
+              "fontWeight" : 400
+            },
+            "showLegend" : false,
+            "widgetCss" : ".tb-widget-title {\n    align-items: stretch !important;\n    flex: 1;\n}\n\n.tb-widget-actions {\n    position: absolute;\n    top: 0;\n    right: 0;\n}\n\n.tb-widget-title tb-timewindow .tb-timewindow.no-padding {\n    border: 1px solid rgba(117, 117, 117, 0.4);\n    border-radius: 4px;\n    padding: 8px 8px !important;\n    position: relative;\n}\n\n.tb-widget-title tb-timewindow .tb-timewindow span {\n    flex: 1;\n    line-height: 32px;\n}\n\n.tb-widget-title tb-timewindow .tb-timewindow::after {\n    font-family: \"Material Icons\";\n    content: 'expand_more';\n    position: absolute;\n    font-size: 24px;\n    right: 12px;\n    z-index: -1;\n}\n",
+            "noDataDisplayMessage" : "",
+            "pageSize" : 1024
+          },
+          "row" : 0,
+          "col" : 0,
+          "id" : "9a3908ff-b60f-6e91-219f-df8a85cdcf89",
+          "typeFullFqn" : "system.cards.markdown_card"
+        },
+        "6adaa9b8-cb95-1c13-0a16-53816eabb84a" : {
+          "type" : "latest",
+          "sizeX" : 5,
+          "sizeY" : 3.5,
+          "config" : {
+            "datasources" : [ {
+              "type" : "entity",
+              "name" : null,
+              "entityAliasId" : "4bb50567-53dc-78d3-c026-4a0f38556dd4",
+              "filterId" : null,
+              "dataKeys" : [ ]
+            } ],
+            "timewindow" : {
+              "displayValue" : "",
+              "selectedTab" : 0,
+              "realtime" : {
+                "realtimeType" : 1,
+                "interval" : 1000,
+                "timewindowMs" : 60000,
+                "quickInterval" : "CURRENT_DAY",
+                "hideInterval" : false,
+                "hideLastInterval" : false,
+                "hideQuickInterval" : false
+              },
+              "history" : {
+                "historyType" : 0,
+                "interval" : 1000,
+                "timewindowMs" : 60000,
+                "fixedTimewindow" : {
+                  "startTimeMs" : 1682928998568,
+                  "endTimeMs" : 1683015398568
+                },
+                "quickInterval" : "CURRENT_DAY",
+                "hideInterval" : false,
+                "hideLastInterval" : false,
+                "hideFixedInterval" : false,
+                "hideQuickInterval" : false
+              },
+              "aggregation" : {
+                "type" : "AVG",
+                "limit" : 2500
+              }
+            },
+            "showTitle" : false,
+            "backgroundColor" : "#fff",
+            "color" : "rgba(0, 0, 0, 0.87)",
+            "padding" : "0px",
+            "settings" : {
+              "useMarkdownTextFunction" : false,
+              "markdownTextPattern" : "<div class=\"main-layout flex flex-col\" style=\"width: 100%; height: 100%;\">\n  <div class=\"params flex flex-row\">\n      <div class=\"param-cell flex flex-1 flex-col gap-2\">\n        <div class=\"param-title\"></div>\n        <div class=\"param\"><div><button id=\"fuel-level\" matTooltip=\"Fuel Level History\" type=\"button\" mat-flat-button color=\"primary\"><mat-icon>bar_chart</mat-icon></button></div></div>\n      </div>\n  </div>\n<div>",
+              "markdownTextFunction" : "return '# Some title\\\\n - Entity name: ' + data[0]['entityName'];",
+              "applyDefaultMarkdownStyle" : false,
+              "markdownCss" : ".tb-markdown-view div, .tb-markdown-view p {\n    padding: 0;\n}\n\n.tb-markdown-view .params {\n    background-color: rgba(205, 205, 205, 0.15);\n    border-top-right-radius: 4px;\n    border-bottom-right-radius: 4px;\n    padding: 16px 4px;\n    margin-bottom: 20px;\n}\n\n.tb-markdown-view .param-title {\n    font-size: 12px;\n    font-weight: normal;\n    color: #757575;\n    height: 14px;\n}\n\n.tb-markdown-view .param {\n    font-size: 12px;\n    font-weight: 500;\n    color: #212121;\n    line-height: 24px;\n    height: 24px;\n}\n\n.tb-markdown-view .param #fuel-level {\n    width: 24px;\n    height: 24px;\n    line-height: 24px;\n    padding: 0;\n    min-width: 24px;\n}\n\n.tb-markdown-view .param #fuel-level .mat-icon {\n    margin-right: 0;\n    margin-left: 0;\n}\n"
+            },
+            "title" : "New Markdown/HTML Card",
+            "showTitleIcon" : false,
+            "iconColor" : "rgba(0, 0, 0, 0.87)",
+            "iconSize" : "24px",
+            "titleTooltip" : "",
+            "dropShadow" : false,
+            "enableFullscreen" : false,
+            "widgetStyle" : { },
+            "titleStyle" : {
+              "fontSize" : "16px",
+              "fontWeight" : 400
+            },
+            "showLegend" : false,
+            "widgetCss" : ".tb-widget-container > .tb-widget {\n    border: none !important;\n    border-radius: 0 !important;\n    box-shadow: none !important;\n}",
+            "noDataDisplayMessage" : "",
+            "actions" : {
+              "elementClick" : [ {
+                "name" : "fuel-level",
+                "icon" : "more_horiz",
+                "useShowWidgetActionFunction" : null,
+                "showWidgetActionFunction" : "return true;",
+                "type" : "openDashboardState",
+                "targetDashboardStateId" : "fuel_level_details",
+                "setEntityId" : true,
+                "stateEntityParamName" : null,
+                "openRightLayout" : false,
+                "popoverPreferredPlacement" : "bottomRight",
+                "popoverHideOnClickOutside" : true,
+                "popoverHideDashboardToolbar" : true,
+                "popoverWidth" : "500px",
+                "popoverHeight" : "300px",
+                "popoverStyle" : { },
+                "openInSeparateDialog" : false,
+                "openInPopover" : true,
+                "id" : "7bfb37ec-209c-a878-482c-e981d5a0fdb4"
+              } ]
+            },
+            "pageSize" : 1024
+          },
+          "row" : 0,
+          "col" : 0,
+          "id" : "6adaa9b8-cb95-1c13-0a16-53816eabb84a",
+          "typeFullFqn" : "system.cards.markdown_card"
+        },
+        "ceaa49b9-4db3-e57b-2b24-d45a3a31d084" : {
+          "typeFullFqn" : "system.time_series_chart",
+          "type" : "timeseries",
+          "sizeX" : 8,
+          "sizeY" : 5,
+          "config" : {
+            "datasources" : [ {
+              "type" : "entity",
+              "name" : "",
+              "entityAliasId" : "4bb50567-53dc-78d3-c026-4a0f38556dd4",
+              "dataKeys" : [ {
+                "name" : "speed",
+                "type" : "timeseries",
+                "label" : "Speed",
+                "color" : "#2196f3",
+                "settings" : {
+                  "yAxisId" : "default",
+                  "showInLegend" : true,
+                  "dataHiddenByDefault" : false,
+                  "type" : "line",
+                  "lineSettings" : {
+                    "showLine" : true,
+                    "step" : false,
+                    "stepType" : "start",
+                    "smooth" : false,
+                    "lineType" : "solid",
+                    "lineWidth" : 2,
+                    "showPoints" : false,
+                    "showPointLabel" : false,
+                    "pointLabelPosition" : "top",
+                    "pointLabelFont" : {
+                      "family" : "Roboto",
+                      "size" : 11,
+                      "sizeUnit" : "px",
+                      "style" : "normal",
+                      "weight" : "400",
+                      "lineHeight" : "1"
+                    },
+                    "pointLabelColor" : "rgba(0, 0, 0, 0.76)",
+                    "pointShape" : "circle",
+                    "pointSize" : 14,
+                    "fillAreaSettings" : {
+                      "type" : "gradient",
+                      "opacity" : 0.4,
+                      "gradient" : {
+                        "start" : 80,
+                        "end" : 20
+                      }
+                    }
+                  },
+                  "barSettings" : {
+                    "showBorder" : false,
+                    "borderWidth" : 2,
+                    "borderRadius" : 0,
+                    "showLabel" : false,
+                    "labelPosition" : "top",
+                    "labelFont" : {
+                      "family" : "Roboto",
+                      "size" : 11,
+                      "sizeUnit" : "px",
+                      "style" : "normal",
+                      "weight" : "400",
+                      "lineHeight" : "1"
+                    },
+                    "labelColor" : "rgba(0, 0, 0, 0.76)",
+                    "backgroundSettings" : {
+                      "type" : "none",
+                      "opacity" : 0.4,
+                      "gradient" : {
+                        "start" : 100,
+                        "end" : 0
+                      }
+                    }
+                  }
+                },
+                "_hash" : 0.2202732842719406,
+                "units" : "mph",
+                "decimals" : 0,
+                "aggregationType" : null,
+                "funcBody" : null,
+                "usePostProcessing" : null,
+                "postFuncBody" : null
+              } ],
+              "alarmFilterConfig" : {
+                "statusList" : [ "ACTIVE" ]
+              },
+              "latestDataKeys" : [ ]
+            } ],
+            "timewindow" : {
+              "hideAggregation" : false,
+              "hideAggInterval" : false,
+              "hideTimezone" : false,
+              "selectedTab" : 0,
+              "realtime" : {
+                "realtimeType" : 0,
+                "timewindowMs" : 300000,
+                "quickInterval" : "CURRENT_DAY",
+                "interval" : 1000
+              },
+              "aggregation" : {
+                "type" : "AVG",
+                "limit" : 5000
+              },
+              "timezone" : null
+            },
+            "showTitle" : false,
+            "backgroundColor" : "rgba(0, 0, 0, 0)",
+            "color" : "rgba(0, 0, 0, 0.87)",
+            "padding" : "0px",
+            "settings" : {
+              "showLegend" : true,
+              "legendConfig" : {
+                "direction" : "column",
+                "position" : "bottom",
+                "sortDataKeys" : false,
+                "showMin" : false,
+                "showMax" : false,
+                "showAvg" : true,
+                "showTotal" : false,
+                "showLatest" : false
+              },
+              "thresholds" : [ {
+                "type" : "constant",
+                "yAxisId" : "default",
+                "units" : "mph",
+                "decimals" : 0,
+                "lineColor" : "rgb(244, 67, 54)",
+                "lineType" : "solid",
+                "lineWidth" : 2,
+                "startSymbol" : "none",
+                "startSymbolSize" : 5,
+                "endSymbol" : "arrow",
+                "endSymbolSize" : 5,
+                "showLabel" : true,
+                "labelPosition" : "insideEndTop",
+                "labelFont" : {
+                  "size" : 14,
+                  "family" : "Roboto",
+                  "weight" : "500",
+                  "style" : "normal"
+                },
+                "labelColor" : null,
+                "value" : 50
+              } ],
+              "dataZoom" : false,
+              "stack" : false,
+              "yAxis" : {
+                "show" : true,
+                "label" : "",
+                "labelFont" : {
+                  "family" : "Roboto",
+                  "size" : 12,
+                  "sizeUnit" : "px",
+                  "style" : "normal",
+                  "weight" : "600",
+                  "lineHeight" : "1"
+                },
+                "labelColor" : "rgba(0, 0, 0, 0.54)",
+                "position" : "left",
+                "showTickLabels" : true,
+                "tickLabelFont" : {
+                  "family" : "Roboto",
+                  "size" : 12,
+                  "sizeUnit" : "px",
+                  "style" : "normal",
+                  "weight" : "400",
+                  "lineHeight" : "1"
+                },
+                "tickLabelColor" : "rgba(0, 0, 0, 0.54)",
+                "showTicks" : true,
+                "ticksColor" : "rgba(0, 0, 0, 0.54)",
+                "showLine" : true,
+                "lineColor" : "rgba(0, 0, 0, 0.54)",
+                "showSplitLines" : true,
+                "splitLinesColor" : "rgba(0, 0, 0, 0.12)"
+              },
+              "xAxis" : {
+                "show" : true,
+                "label" : "",
+                "labelFont" : {
+                  "family" : "Roboto",
+                  "size" : 12,
+                  "sizeUnit" : "px",
+                  "style" : "normal",
+                  "weight" : "600",
+                  "lineHeight" : "1"
+                },
+                "labelColor" : "rgba(0, 0, 0, 0.54)",
+                "position" : "bottom",
+                "showTickLabels" : true,
+                "tickLabelFont" : {
+                  "family" : "Roboto",
+                  "size" : 10,
+                  "sizeUnit" : "px",
+                  "style" : "normal",
+                  "weight" : "400",
+                  "lineHeight" : "1"
+                },
+                "tickLabelColor" : "rgba(0, 0, 0, 0.54)",
+                "ticksFormat" : { },
+                "showTicks" : true,
+                "ticksColor" : "rgba(0, 0, 0, 0.54)",
+                "showLine" : true,
+                "lineColor" : "rgba(0, 0, 0, 0.54)",
+                "showSplitLines" : true,
+                "splitLinesColor" : "rgba(0, 0, 0, 0.12)"
+              },
+              "legendLabelFont" : {
+                "family" : "Roboto",
+                "size" : 12,
+                "sizeUnit" : "px",
+                "style" : "normal",
+                "weight" : "400",
+                "lineHeight" : "16px"
+              },
+              "legendLabelColor" : "rgba(0, 0, 0, 0.76)",
+              "showTooltip" : true,
+              "tooltipTrigger" : "axis",
+              "tooltipValueFont" : {
+                "family" : "Roboto",
+                "size" : 12,
+                "sizeUnit" : "px",
+                "style" : "normal",
+                "weight" : "500",
+                "lineHeight" : "16px"
+              },
+              "tooltipValueColor" : "rgba(0, 0, 0, 0.76)",
+              "tooltipShowDate" : true,
+              "tooltipDateFormat" : {
+                "format" : null,
+                "lastUpdateAgo" : false,
+                "custom" : false,
+                "auto" : true,
+                "autoDateFormatSettings" : { }
+              },
+              "tooltipDateFont" : {
+                "family" : "Roboto",
+                "size" : 11,
+                "sizeUnit" : "px",
+                "style" : "normal",
+                "weight" : "400",
+                "lineHeight" : "16px"
+              },
+              "tooltipDateColor" : "rgba(0, 0, 0, 0.76)",
+              "tooltipDateInterval" : true,
+              "tooltipBackgroundColor" : "rgba(255, 255, 255, 0.76)",
+              "tooltipBackgroundBlur" : 4,
+              "background" : {
+                "type" : "color",
+                "color" : "#FFFFFF00",
+                "overlay" : {
+                  "enabled" : false,
+                  "color" : "rgba(255,255,255,0.72)",
+                  "blur" : 3
+                },
+                "imageUrl" : null
+              },
+              "yAxes" : {
+                "default" : {
+                  "units" : "mph",
+                  "decimals" : 0,
+                  "show" : true,
+                  "label" : "",
+                  "labelFont" : {
+                    "family" : "Roboto",
+                    "size" : 12,
+                    "sizeUnit" : "px",
+                    "style" : "normal",
+                    "weight" : "600",
+                    "lineHeight" : "1"
+                  },
+                  "labelColor" : "rgba(0, 0, 0, 0.54)",
+                  "position" : "left",
+                  "showTickLabels" : true,
+                  "tickLabelFont" : {
+                    "family" : "Roboto",
+                    "size" : 12,
+                    "sizeUnit" : "px",
+                    "style" : "normal",
+                    "weight" : "400",
+                    "lineHeight" : "1"
+                  },
+                  "tickLabelColor" : "rgba(0, 0, 0, 0.54)",
+                  "ticksFormatter" : null,
+                  "showTicks" : true,
+                  "ticksColor" : "rgba(0, 0, 0, 0.54)",
+                  "showLine" : true,
+                  "lineColor" : "rgba(0, 0, 0, 0.54)",
+                  "showSplitLines" : true,
+                  "splitLinesColor" : "rgba(0, 0, 0, 0.12)",
+                  "id" : "default",
+                  "order" : 0,
+                  "min" : 0,
+                  "max" : 100
+                }
+              },
+              "noAggregationBarWidthSettings" : {
+                "strategy" : "group",
+                "groupWidth" : {
+                  "relative" : true,
+                  "relativeWidth" : 2,
+                  "absoluteWidth" : 1000
+                },
+                "barWidth" : {
+                  "relative" : true,
+                  "relativeWidth" : 2,
+                  "absoluteWidth" : 1000
+                }
+              },
+              "animation" : {
+                "animation" : true,
+                "animationThreshold" : 2000,
+                "animationDuration" : 500,
+                "animationEasing" : "cubicOut",
+                "animationDelay" : 0,
+                "animationDurationUpdate" : 300,
+                "animationEasingUpdate" : "cubicOut",
+                "animationDelayUpdate" : 0
+              },
+              "padding" : "12px"
+            },
+            "title" : "Time series chart",
+            "dropShadow" : false,
+            "enableFullscreen" : false,
+            "titleStyle" : null,
+            "configMode" : "basic",
+            "actions" : { },
+            "showTitleIcon" : false,
+            "titleIcon" : "thermostat",
+            "iconColor" : "#1F6BDD",
+            "useDashboardTimewindow" : false,
+            "displayTimewindow" : true,
+            "titleFont" : {
+              "size" : 16,
+              "sizeUnit" : "px",
+              "family" : "Roboto",
+              "weight" : "500",
+              "style" : "normal",
+              "lineHeight" : "24px"
+            },
+            "titleColor" : "rgba(0, 0, 0, 0.87)",
+            "titleTooltip" : "",
+            "widgetStyle" : { },
+            "widgetCss" : "",
+            "pageSize" : 1024,
+            "units" : "",
+            "decimals" : null,
+            "noDataDisplayMessage" : "",
+            "timewindowStyle" : {
+              "showIcon" : false,
+              "iconSize" : "24px",
+              "icon" : null,
+              "iconPosition" : "left",
+              "font" : {
+                "size" : 12,
+                "sizeUnit" : "px",
+                "family" : "Roboto",
+                "weight" : "400",
+                "style" : "normal",
+                "lineHeight" : "16px"
+              },
+              "color" : null,
+              "displayTypePrefix" : true
+            },
+            "margin" : "0px",
+            "borderRadius" : "0px",
+            "iconSize" : "0px"
+          },
+          "row" : 0,
+          "col" : 0,
+          "id" : "ceaa49b9-4db3-e57b-2b24-d45a3a31d084"
+        },
+        "97e2a129-e737-8f03-4b54-f89e0428f17a" : {
+          "typeFullFqn" : "system.time_series_chart",
+          "type" : "timeseries",
+          "sizeX" : 8,
+          "sizeY" : 5,
+          "config" : {
+            "datasources" : [ {
+              "type" : "entity",
+              "name" : "",
+              "entityAliasId" : "4bb50567-53dc-78d3-c026-4a0f38556dd4",
+              "dataKeys" : [ {
+                "name" : "fuel",
+                "type" : "timeseries",
+                "label" : "Fuel level",
+                "color" : "#2196f3",
+                "settings" : {
+                  "yAxisId" : "default",
+                  "showInLegend" : true,
+                  "dataHiddenByDefault" : false,
+                  "type" : "line",
+                  "lineSettings" : {
+                    "showLine" : true,
+                    "step" : false,
+                    "stepType" : "start",
+                    "smooth" : true,
+                    "lineType" : "solid",
+                    "lineWidth" : 2,
+                    "showPoints" : false,
+                    "showPointLabel" : false,
+                    "pointLabelPosition" : "top",
+                    "pointLabelFont" : {
+                      "family" : "Roboto",
+                      "size" : 11,
+                      "sizeUnit" : "px",
+                      "style" : "normal",
+                      "weight" : "400",
+                      "lineHeight" : "1"
+                    },
+                    "pointLabelColor" : "rgba(0, 0, 0, 0.76)",
+                    "pointShape" : "circle",
+                    "pointSize" : 14,
+                    "fillAreaSettings" : {
+                      "type" : "gradient",
+                      "opacity" : 0.4,
+                      "gradient" : {
+                        "start" : 80,
+                        "end" : 20
+                      }
+                    }
+                  },
+                  "barSettings" : {
+                    "showBorder" : false,
+                    "borderWidth" : 2,
+                    "borderRadius" : 0,
+                    "showLabel" : false,
+                    "labelPosition" : "top",
+                    "labelFont" : {
+                      "family" : "Roboto",
+                      "size" : 11,
+                      "sizeUnit" : "px",
+                      "style" : "normal",
+                      "weight" : "400",
+                      "lineHeight" : "1"
+                    },
+                    "labelColor" : "rgba(0, 0, 0, 0.76)",
+                    "backgroundSettings" : {
+                      "type" : "none",
+                      "opacity" : 0.4,
+                      "gradient" : {
+                        "start" : 100,
+                        "end" : 0
+                      }
+                    }
+                  }
+                },
+                "_hash" : 0.2202732842719406,
+                "units" : "%",
+                "decimals" : 0,
+                "aggregationType" : null,
+                "funcBody" : null,
+                "usePostProcessing" : null,
+                "postFuncBody" : null
+              } ],
+              "alarmFilterConfig" : {
+                "statusList" : [ "ACTIVE" ]
+              },
+              "latestDataKeys" : [ ]
+            } ],
+            "timewindow" : {
+              "hideAggregation" : false,
+              "hideAggInterval" : false,
+              "hideTimezone" : false,
+              "selectedTab" : 0,
+              "realtime" : {
+                "realtimeType" : 0,
+                "timewindowMs" : 60000,
+                "quickInterval" : "CURRENT_DAY",
+                "interval" : 1000
+              },
+              "aggregation" : {
+                "type" : "AVG",
+                "limit" : 5000
+              },
+              "timezone" : null
+            },
+            "showTitle" : true,
+            "backgroundColor" : "rgba(0, 0, 0, 0)",
+            "color" : "rgba(0, 0, 0, 0.87)",
+            "padding" : "0px",
+            "settings" : {
+              "showLegend" : false,
+              "legendConfig" : {
+                "direction" : "column",
+                "position" : "bottom",
+                "sortDataKeys" : false,
+                "showMin" : false,
+                "showMax" : false,
+                "showAvg" : true,
+                "showTotal" : false,
+                "showLatest" : false
+              },
+              "thresholds" : [ {
+                "type" : "constant",
+                "yAxisId" : "default",
+                "units" : "%",
+                "decimals" : 0,
+                "lineColor" : "rgb(244, 67, 54)",
+                "lineType" : "solid",
+                "lineWidth" : 2,
+                "startSymbol" : "none",
+                "startSymbolSize" : 5,
+                "endSymbol" : "arrow",
+                "endSymbolSize" : 5,
+                "showLabel" : true,
+                "labelPosition" : "insideEndTop",
+                "labelFont" : {
+                  "size" : 14,
+                  "family" : "Roboto",
+                  "weight" : "500",
+                  "style" : "normal"
+                },
+                "labelColor" : null,
+                "value" : 10
+              }, {
+                "type" : "constant",
+                "yAxisId" : "default",
+                "units" : "%",
+                "decimals" : 0,
+                "lineColor" : "rgb(245, 221, 0)",
+                "lineType" : "solid",
+                "lineWidth" : 2,
+                "startSymbol" : "none",
+                "startSymbolSize" : 5,
+                "endSymbol" : "arrow",
+                "endSymbolSize" : 5,
+                "showLabel" : true,
+                "labelPosition" : "insideEndTop",
+                "labelFont" : {
+                  "size" : 14,
+                  "family" : "Roboto",
+                  "weight" : "500",
+                  "style" : "normal"
+                },
+                "labelColor" : null,
+                "value" : 25
+              } ],
+              "dataZoom" : false,
+              "stack" : false,
+              "yAxis" : {
+                "show" : true,
+                "label" : "",
+                "labelFont" : {
+                  "family" : "Roboto",
+                  "size" : 12,
+                  "sizeUnit" : "px",
+                  "style" : "normal",
+                  "weight" : "600",
+                  "lineHeight" : "1"
+                },
+                "labelColor" : "rgba(0, 0, 0, 0.54)",
+                "position" : "left",
+                "showTickLabels" : true,
+                "tickLabelFont" : {
+                  "family" : "Roboto",
+                  "size" : 12,
+                  "sizeUnit" : "px",
+                  "style" : "normal",
+                  "weight" : "400",
+                  "lineHeight" : "1"
+                },
+                "tickLabelColor" : "rgba(0, 0, 0, 0.54)",
+                "showTicks" : true,
+                "ticksColor" : "rgba(0, 0, 0, 0.54)",
+                "showLine" : true,
+                "lineColor" : "rgba(0, 0, 0, 0.54)",
+                "showSplitLines" : true,
+                "splitLinesColor" : "rgba(0, 0, 0, 0.12)"
+              },
+              "xAxis" : {
+                "show" : true,
+                "label" : "",
+                "labelFont" : {
+                  "family" : "Roboto",
+                  "size" : 12,
+                  "sizeUnit" : "px",
+                  "style" : "normal",
+                  "weight" : "600",
+                  "lineHeight" : "1"
+                },
+                "labelColor" : "rgba(0, 0, 0, 0.54)",
+                "position" : "bottom",
+                "showTickLabels" : true,
+                "tickLabelFont" : {
+                  "family" : "Roboto",
+                  "size" : 10,
+                  "sizeUnit" : "px",
+                  "style" : "normal",
+                  "weight" : "400",
+                  "lineHeight" : "1"
+                },
+                "tickLabelColor" : "rgba(0, 0, 0, 0.54)",
+                "ticksFormat" : { },
+                "showTicks" : true,
+                "ticksColor" : "rgba(0, 0, 0, 0.54)",
+                "showLine" : true,
+                "lineColor" : "rgba(0, 0, 0, 0.54)",
+                "showSplitLines" : true,
+                "splitLinesColor" : "rgba(0, 0, 0, 0.12)"
+              },
+              "legendLabelFont" : {
+                "family" : "Roboto",
+                "size" : 12,
+                "sizeUnit" : "px",
+                "style" : "normal",
+                "weight" : "400",
+                "lineHeight" : "16px"
+              },
+              "legendLabelColor" : "rgba(0, 0, 0, 0.76)",
+              "showTooltip" : true,
+              "tooltipTrigger" : "axis",
+              "tooltipValueFont" : {
+                "family" : "Roboto",
+                "size" : 12,
+                "sizeUnit" : "px",
+                "style" : "normal",
+                "weight" : "500",
+                "lineHeight" : "16px"
+              },
+              "tooltipValueColor" : "rgba(0, 0, 0, 0.76)",
+              "tooltipShowDate" : true,
+              "tooltipDateFormat" : {
+                "format" : null,
+                "lastUpdateAgo" : false,
+                "custom" : false,
+                "auto" : true,
+                "autoDateFormatSettings" : { }
+              },
+              "tooltipDateFont" : {
+                "family" : "Roboto",
+                "size" : 11,
+                "sizeUnit" : "px",
+                "style" : "normal",
+                "weight" : "400",
+                "lineHeight" : "16px"
+              },
+              "tooltipDateColor" : "rgba(0, 0, 0, 0.76)",
+              "tooltipDateInterval" : true,
+              "tooltipBackgroundColor" : "rgba(255, 255, 255, 0.76)",
+              "tooltipBackgroundBlur" : 4,
+              "background" : {
+                "type" : "color",
+                "color" : "#FFFFFF00",
+                "overlay" : {
+                  "enabled" : false,
+                  "color" : "rgba(255,255,255,0.72)",
+                  "blur" : 3
+                },
+                "imageUrl" : null
+              },
+              "yAxes" : {
+                "default" : {
+                  "units" : "%",
+                  "decimals" : 0,
+                  "show" : true,
+                  "label" : "Fuel level, %",
+                  "labelFont" : {
+                    "family" : "Roboto",
+                    "size" : 12,
+                    "sizeUnit" : "px",
+                    "style" : "normal",
+                    "weight" : "600",
+                    "lineHeight" : "1"
+                  },
+                  "labelColor" : "rgba(0, 0, 0, 0.54)",
+                  "position" : "left",
+                  "showTickLabels" : true,
+                  "tickLabelFont" : {
+                    "family" : "Roboto",
+                    "size" : 12,
+                    "sizeUnit" : "px",
+                    "style" : "normal",
+                    "weight" : "400",
+                    "lineHeight" : "1"
+                  },
+                  "tickLabelColor" : "rgba(0, 0, 0, 0.54)",
+                  "ticksFormatter" : null,
+                  "showTicks" : true,
+                  "ticksColor" : "rgba(0, 0, 0, 0.54)",
+                  "showLine" : true,
+                  "lineColor" : "rgba(0, 0, 0, 0.54)",
+                  "showSplitLines" : true,
+                  "splitLinesColor" : "rgba(0, 0, 0, 0.12)",
+                  "id" : "default",
+                  "order" : 0,
+                  "min" : 0,
+                  "max" : 100
+                }
+              },
+              "noAggregationBarWidthSettings" : {
+                "strategy" : "group",
+                "groupWidth" : {
+                  "relative" : true,
+                  "relativeWidth" : 2,
+                  "absoluteWidth" : 1000
+                },
+                "barWidth" : {
+                  "relative" : true,
+                  "relativeWidth" : 2,
+                  "absoluteWidth" : 1000
+                }
+              },
+              "animation" : {
+                "animation" : true,
+                "animationThreshold" : 2000,
+                "animationDuration" : 500,
+                "animationEasing" : "cubicOut",
+                "animationDelay" : 0,
+                "animationDurationUpdate" : 300,
+                "animationEasingUpdate" : "cubicOut",
+                "animationDelayUpdate" : 0
+              },
+              "padding" : "6px"
+            },
+            "title" : "Fuel level history",
+            "dropShadow" : false,
+            "enableFullscreen" : false,
+            "titleStyle" : null,
+            "configMode" : "basic",
+            "actions" : { },
+            "showTitleIcon" : false,
+            "titleIcon" : "thermostat",
+            "iconColor" : "#1F6BDD",
+            "useDashboardTimewindow" : false,
+            "displayTimewindow" : true,
+            "titleFont" : {
+              "size" : null,
+              "sizeUnit" : "px",
+              "family" : null,
+              "weight" : null,
+              "style" : null,
+              "lineHeight" : null
+            },
+            "titleColor" : null,
+            "titleTooltip" : "",
+            "widgetStyle" : { },
+            "widgetCss" : "",
+            "pageSize" : 1024,
+            "units" : "",
+            "decimals" : null,
+            "noDataDisplayMessage" : "",
+            "timewindowStyle" : {
+              "showIcon" : false,
+              "iconSize" : "24px",
+              "icon" : null,
+              "iconPosition" : "left",
+              "font" : {
+                "size" : 12,
+                "sizeUnit" : "px",
+                "family" : "Roboto",
+                "weight" : "400",
+                "style" : "normal",
+                "lineHeight" : "16px"
+              },
+              "color" : null,
+              "displayTypePrefix" : true
+            },
+            "margin" : "0px",
+            "borderRadius" : "0px",
+            "iconSize" : "0px"
+          },
+          "row" : 0,
+          "col" : 0,
+          "id" : "97e2a129-e737-8f03-4b54-f89e0428f17a"
+        },
+        "ff996c6e-be3e-09e3-c00a-93dde3776320" : {
+          "typeFullFqn" : "system.map",
+          "type" : "latest",
+          "sizeX" : 8.5,
+          "sizeY" : 6,
+          "config" : {
+            "datasources" : [ ],
+            "timewindow" : {
+              "displayValue" : "",
+              "selectedTab" : 0,
+              "realtime" : {
+                "realtimeType" : 1,
+                "interval" : 1000,
+                "timewindowMs" : 60000,
+                "quickInterval" : "CURRENT_DAY",
+                "hideInterval" : false,
+                "hideLastInterval" : false,
+                "hideQuickInterval" : false
+              },
+              "history" : {
+                "historyType" : 0,
+                "interval" : 1000,
+                "timewindowMs" : 60000,
+                "fixedTimewindow" : {
+                  "startTimeMs" : 1742478746531,
+                  "endTimeMs" : 1742565146531
+                },
+                "quickInterval" : "CURRENT_DAY",
+                "hideInterval" : false,
+                "hideLastInterval" : false,
+                "hideFixedInterval" : false,
+                "hideQuickInterval" : false
+              },
+              "aggregation" : {
+                "type" : "AVG",
+                "limit" : 2500
+              }
+            },
+            "showTitle" : true,
+            "backgroundColor" : "rgb(255, 255, 255)",
+            "color" : "rgba(0, 0, 0, 0.87)",
+            "padding" : "0px",
+            "settings" : {
+              "mapType" : "geoMap",
+              "layers" : [ {
+                "label" : "{i18n:widgets.maps.layer.roadmap}",
+                "provider" : "openstreet",
+                "layerType" : "CartoDB.Positron",
+                "referenceLayer" : null
+              }, {
+                "label" : "{i18n:widgets.maps.layer.satellite}",
+                "provider" : "openstreet",
+                "layerType" : "Esri.WorldImagery"
+              }, {
+                "label" : "{i18n:widgets.maps.layer.hybrid}",
+                "provider" : "openstreet",
+                "layerType" : "Esri.WorldImagery",
+                "referenceLayer" : "openstreetmap_hybrid"
+              } ],
+              "trips" : [ ],
+              "markers" : [ {
+                "dsType" : "entity",
+                "dsLabel" : "",
+                "dsDeviceId" : null,
+                "dsEntityAliasId" : "91dc9422-ec87-4a99-be03-1eee92b1d4f0",
+                "dsFilterId" : null,
+                "additionalDataKeys" : [ {
+                  "name" : "speed",
+                  "type" : "timeseries",
+                  "label" : "speed",
+                  "color" : "#2196f3",
+                  "settings" : { },
+                  "_hash" : 0.40693941143152923
+                }, {
+                  "name" : "fuel",
+                  "type" : "timeseries",
+                  "label" : "fuel",
+                  "color" : "#2196f3",
+                  "settings" : { },
+                  "_hash" : 0.3679033835875989
+                }, {
+                  "name" : "status",
+                  "type" : "timeseries",
+                  "label" : "status",
+                  "color" : "#2196f3",
+                  "settings" : { },
+                  "_hash" : 0.5144272696677388
+                } ],
+                "label" : {
+                  "show" : true,
+                  "type" : "function",
+                  "pattern" : "${entityName}",
+                  "patternFunction" : "var status = data['status'];\r\nvar color = '#1F8B4D';\r\nswitch (status) { \r\n    case 'On route':\r\n        color = \"#1F8B4D\";\r\n        break;\r\n    case 'At the stop':\r\n        color = \"#D4C21B\";\r\n        break;\r\n    case 'Refueling':\r\n        color = \"#4A8AEC\";\r\n        break;\r\n    case 'Broken':\r\n        color = \"#E64A19\";\r\n        break;\r\n    default:\r\n        break;\r\n}\r\n\r\nreturn '<div style=\"border-radius: 15px; border: solid #ffffff 2px; background-color: #fff; padding: 3px 0px 3px 0px; position: relative; bottom: 4px;\"><span style=\"border: solid ' + color + ' 2px; border-radius: 15px; color: ' + color + '; padding: 4px 12px 4px 12px; font-size: 14px; font-weight: 600;\">' + \r\n           '${entityName}' + \r\n        '</span></div>';     \r\n"
+                },
+                "tooltip" : {
+                  "show" : true,
+                  "type" : "pattern",
+                  "pattern" : "<b>${entityName}</b><br/><br/><b>Status:</b> ${status}<br/><b>Speed:</b> ${speed:0} MPH<br/><b>Fuel level:</b> ${fuel:0} %<br/><br/><link-act name='bus-details'>Bus details</link-act>",
+                  "patternFunction" : null,
+                  "trigger" : "click",
+                  "autoclose" : true,
+                  "offsetX" : 0,
+                  "offsetY" : -1,
+                  "tagActions" : [ {
+                    "name" : "bus-details",
+                    "type" : "openDashboardState",
+                    "targetDashboardStateId" : "bus",
+                    "setEntityId" : true,
+                    "stateEntityParamName" : null,
+                    "openRightLayout" : false,
+                    "openInSeparateDialog" : false,
+                    "openInPopover" : false
+                  } ]
+                },
+                "click" : {
+                  "type" : "doNothing"
+                },
+                "groups" : null,
+                "edit" : {
+                  "enabledActions" : [ ],
+                  "attributeScope" : "SERVER_SCOPE",
+                  "snappable" : false
+                },
+                "xKey" : {
+                  "name" : "latitude",
+                  "type" : "timeseries",
+                  "label" : "latitude",
+                  "color" : "#2196f3",
+                  "settings" : { },
+                  "_hash" : 0.12789242604869533
+                },
+                "yKey" : {
+                  "name" : "longitude",
+                  "type" : "timeseries",
+                  "label" : "longitude",
+                  "color" : "#2196f3",
+                  "settings" : { },
+                  "_hash" : 0.7955845217953001
+                },
+                "markerType" : "icon",
+                "markerShape" : {
+                  "shape" : "markerShape1",
+                  "size" : 34,
+                  "color" : {
+                    "type" : "constant",
+                    "color" : "#307FE5"
+                  }
+                },
+                "markerIcon" : {
+                  "iconContainer" : "iconContainer2",
+                  "icon" : "directions_bus_filled",
+                  "size" : 48,
+                  "color" : {
+                    "type" : "function",
+                    "color" : "#307FE5",
+                    "range" : null,
+                    "colorFunction" : "var status = data['status'];\r\nvar color = '#1F8B4D';\r\nswitch (status) { \r\n    case 'On route':\r\n        color = \"#1F8B4D\";\r\n        break;\r\n    case 'At the stop':\r\n        color = \"#D4C21B\";\r\n        break;\r\n    case 'Refueling':\r\n        color = \"#4A8AEC\";\r\n        break;\r\n    case 'Broken':\r\n        color = \"#E64A19\";\r\n        break;\r\n    default:\r\n        break;\r\n}\r\nreturn color;"
+                  }
+                },
+                "markerImage" : {
+                  "type" : "image",
+                  "image" : "/assets/markers/shape1.svg",
+                  "imageSize" : 34
+                },
+                "markerOffsetX" : 0.5,
+                "markerOffsetY" : 1,
+                "markerClustering" : {
+                  "enable" : false,
+                  "zoomOnClick" : true,
+                  "maxZoom" : null,
+                  "maxClusterRadius" : 80,
+                  "zoomAnimation" : true,
+                  "showCoverageOnHover" : true,
+                  "spiderfyOnMaxZoom" : false,
+                  "chunkedLoad" : false,
+                  "lazyLoad" : true,
+                  "useClusterMarkerColorFunction" : false,
+                  "clusterMarkerColorFunction" : null
+                }
+              } ],
+              "polygons" : [ ],
+              "circles" : [ ],
+              "additionalDataSources" : [ ],
+              "controlsPosition" : "topleft",
+              "zoomActions" : [ "scroll", "doubleClick", "controlButtons" ],
+              "scales" : [ ],
+              "dragModeButton" : false,
+              "fitMapBounds" : true,
+              "useDefaultCenterPosition" : false,
+              "defaultCenterPosition" : "0,0",
+              "defaultZoomLevel" : null,
+              "minZoomLevel" : 16,
+              "mapPageSize" : 16384,
+              "mapActionButtons" : [ ],
+              "tripTimeline" : {
+                "showTimelineControl" : false,
+                "timeStep" : 1000,
+                "speedOptions" : [ 1, 5, 10, 15, 25 ],
+                "showTimestamp" : true,
+                "timestampFormat" : {
+                  "format" : "yyyy-MM-dd HH:mm:ss",
+                  "lastUpdateAgo" : false,
+                  "custom" : false,
+                  "auto" : false
+                },
+                "snapToRealLocation" : false,
+                "locationSnapFilter" : "return true;"
+              },
+              "background" : {
+                "type" : "color",
+                "imageUrl" : null,
+                "color" : "#FFFFFF01",
+                "overlay" : {
+                  "enabled" : false,
+                  "color" : "rgba(255,255,255,0.72)",
+                  "blur" : 3
+                }
+              },
+              "padding" : "8px",
+              "imageSource" : null
+            },
+            "title" : "Bus locations",
+            "useDashboardTimewindow" : true,
+            "displayTimewindow" : true,
+            "showTitleIcon" : false,
+            "titleTooltip" : "",
+            "dropShadow" : true,
+            "enableFullscreen" : true,
+            "widgetStyle" : { },
+            "widgetCss" : "",
+            "titleStyle" : {
+              "fontSize" : "24px",
+              "fontWeight" : 700,
+              "padding" : "5px 10px 5px 5px",
+              "height" : "60px"
+            },
+            "pageSize" : 1024,
+            "noDataDisplayMessage" : "",
+            "configMode" : "basic",
+            "titleFont" : null,
+            "titleColor" : null,
+            "margin" : "0px",
+            "borderRadius" : "",
+            "iconSize" : "24px",
+            "titleIcon" : "map",
+            "iconColor" : "#1F6BDD",
+            "actions" : { }
+          },
+          "row" : 0,
+          "col" : 0,
+          "id" : "ff996c6e-be3e-09e3-c00a-93dde3776320"
+        },
+        "0b565261-9a56-d3d5-aee4-e5082d131a3a" : {
+          "typeFullFqn" : "system.map",
+          "type" : "latest",
+          "sizeX" : 8.5,
+          "sizeY" : 6,
+          "config" : {
+            "datasources" : [ ],
+            "timewindow" : {
+              "displayValue" : "",
+              "selectedTab" : 0,
+              "realtime" : {
+                "realtimeType" : 1,
+                "interval" : 1000,
+                "timewindowMs" : 60000,
+                "quickInterval" : "CURRENT_DAY",
+                "hideInterval" : false,
+                "hideLastInterval" : false,
+                "hideQuickInterval" : false
+              },
+              "history" : {
+                "historyType" : 0,
+                "interval" : 1000,
+                "timewindowMs" : 60000,
+                "fixedTimewindow" : {
+                  "startTimeMs" : 1742478746531,
+                  "endTimeMs" : 1742565146531
+                },
+                "quickInterval" : "CURRENT_DAY",
+                "hideInterval" : false,
+                "hideLastInterval" : false,
+                "hideFixedInterval" : false,
+                "hideQuickInterval" : false
+              },
+              "aggregation" : {
+                "type" : "AVG",
+                "limit" : 2500
+              }
+            },
+            "showTitle" : true,
+            "backgroundColor" : "rgb(255, 255, 255)",
+            "color" : "rgba(0, 0, 0, 0.87)",
+            "padding" : "0px",
+            "settings" : {
+              "mapType" : "geoMap",
+              "layers" : [ {
+                "label" : "{i18n:widgets.maps.layer.roadmap}",
+                "provider" : "openstreet",
+                "layerType" : "CartoDB.Positron",
+                "referenceLayer" : null
+              }, {
+                "label" : "{i18n:widgets.maps.layer.satellite}",
+                "provider" : "openstreet",
+                "layerType" : "Esri.WorldImagery"
+              }, {
+                "label" : "{i18n:widgets.maps.layer.hybrid}",
+                "provider" : "openstreet",
+                "layerType" : "Esri.WorldImagery",
+                "referenceLayer" : "openstreetmap_hybrid"
+              } ],
+              "imageSource" : null,
+              "markers" : [ {
+                "dsType" : "entity",
+                "dsLabel" : "",
+                "dsDeviceId" : null,
+                "dsEntityAliasId" : "4bb50567-53dc-78d3-c026-4a0f38556dd4",
+                "dsFilterId" : null,
+                "additionalDataKeys" : [ {
+                  "name" : "speed",
+                  "type" : "timeseries",
+                  "label" : "speed",
+                  "color" : "#2196f3",
+                  "settings" : { },
+                  "_hash" : 0.40693941143152923
+                }, {
+                  "name" : "fuel",
+                  "type" : "timeseries",
+                  "label" : "fuel",
+                  "color" : "#2196f3",
+                  "settings" : { },
+                  "_hash" : 0.3679033835875989
+                }, {
+                  "name" : "status",
+                  "type" : "timeseries",
+                  "label" : "status",
+                  "color" : "#2196f3",
+                  "settings" : { },
+                  "_hash" : 0.5144272696677388
+                } ],
+                "label" : {
+                  "show" : true,
+                  "type" : "function",
+                  "pattern" : "${entityName}",
+                  "patternFunction" : "var status = data['status'];\r\nvar color = '#1F8B4D';\r\nswitch (status) { \r\n    case 'On route':\r\n        color = \"#1F8B4D\";\r\n        break;\r\n    case 'At the stop':\r\n        color = \"#D4C21B\";\r\n        break;\r\n    case 'Refueling':\r\n        color = \"#4A8AEC\";\r\n        break;\r\n    case 'Broken':\r\n        color = \"#E64A19\";\r\n        break;\r\n    default:\r\n        break;\r\n}\r\n\r\nreturn '<div style=\"border-radius: 15px; border: solid #ffffff 2px; background-color: #fff; padding: 3px 0px 3px 0px; position: relative; bottom: 4px;\"><span style=\"border: solid ' + color + ' 2px; border-radius: 15px; color: ' + color + '; padding: 4px 12px 4px 12px; font-size: 14px; font-weight: 600;\">' + \r\n           '${entityName}' + \r\n        '</span></div>';     \r\n"
+                },
+                "tooltip" : {
+                  "show" : true,
+                  "trigger" : "click",
+                  "autoclose" : true,
+                  "type" : "pattern",
+                  "pattern" : "<b>${entityName}</b><br/><br/><b>Status:</b> ${status}<br/><b>Speed:</b> ${speed:0} MPH<br/><b>Fuel level:</b> ${fuel:0} %<br/><br/>",
+                  "offsetX" : 0,
+                  "offsetY" : -1,
+                  "patternFunction" : null,
+                  "tagActions" : [ ]
+                },
+                "click" : {
+                  "type" : "doNothing"
+                },
+                "groups" : [ "Bus marker" ],
+                "edit" : {
+                  "enabledActions" : [ ],
+                  "attributeScope" : "SERVER_SCOPE",
+                  "snappable" : false
+                },
+                "xKey" : {
+                  "name" : "latitude",
+                  "type" : "timeseries",
+                  "label" : "latitude",
+                  "color" : "#2196f3",
+                  "settings" : { },
+                  "_hash" : 0.12789242604869533
+                },
+                "yKey" : {
+                  "name" : "longitude",
+                  "type" : "timeseries",
+                  "label" : "longitude",
+                  "color" : "#2196f3",
+                  "settings" : { },
+                  "_hash" : 0.7955845217953001
+                },
+                "markerType" : "icon",
+                "markerShape" : {
+                  "shape" : "markerShape1",
+                  "size" : 34,
+                  "color" : {
+                    "type" : "constant",
+                    "color" : "#307FE5"
+                  }
+                },
+                "markerIcon" : {
+                  "iconContainer" : "iconContainer2",
+                  "icon" : "directions_bus_filled",
+                  "size" : 48,
+                  "color" : {
+                    "type" : "function",
+                    "color" : "#307FE5",
+                    "range" : null,
+                    "colorFunction" : "var status = data['status'];\r\nvar color = '#1F8B4D';\r\nswitch (status) { \r\n    case 'On route':\r\n        color = \"#1F8B4D\";\r\n        break;\r\n    case 'At the stop':\r\n        color = \"#D4C21B\";\r\n        break;\r\n    case 'Refueling':\r\n        color = \"#4A8AEC\";\r\n        break;\r\n    case 'Broken':\r\n        color = \"#E64A19\";\r\n        break;\r\n    default:\r\n        break;\r\n}\r\nreturn color;"
+                  }
+                },
+                "markerImage" : {
+                  "type" : "image",
+                  "image" : "/assets/markers/shape1.svg",
+                  "imageSize" : 34
+                },
+                "markerOffsetX" : 0.5,
+                "markerOffsetY" : 1,
+                "markerClustering" : {
+                  "enable" : false,
+                  "zoomOnClick" : true,
+                  "maxZoom" : null,
+                  "maxClusterRadius" : 80,
+                  "zoomAnimation" : true,
+                  "showCoverageOnHover" : true,
+                  "spiderfyOnMaxZoom" : false,
+                  "chunkedLoad" : false,
+                  "lazyLoad" : true,
+                  "useClusterMarkerColorFunction" : false,
+                  "clusterMarkerColorFunction" : null
+                }
+              } ],
+              "polygons" : [ {
+                "dsType" : "entity",
+                "dsLabel" : "",
+                "dsDeviceId" : null,
+                "dsEntityAliasId" : "4bb50567-53dc-78d3-c026-4a0f38556dd4",
+                "dsFilterId" : null,
+                "additionalDataKeys" : null,
+                "label" : {
+                  "show" : false,
+                  "type" : "pattern",
+                  "pattern" : "${entityName}"
+                },
+                "tooltip" : {
+                  "show" : false,
+                  "trigger" : "click",
+                  "autoclose" : true,
+                  "type" : "pattern",
+                  "pattern" : "<b>${entityName}</b><br/><br/><b>TimeStamp:</b> ${ts:7}",
+                  "offsetX" : 0,
+                  "offsetY" : -1
+                },
+                "click" : {
+                  "type" : "doNothing"
+                },
+                "groups" : [ "Route area" ],
+                "edit" : {
+                  "enabledActions" : [ ],
+                  "attributeScope" : "SERVER_SCOPE",
+                  "snappable" : false
+                },
+                "fillColor" : {
+                  "type" : "constant",
+                  "color" : "rgba(74, 138, 236, 0.2)",
+                  "range" : null,
+                  "colorFunction" : null
+                },
+                "strokeColor" : {
+                  "type" : "constant",
+                  "color" : "#4A8AEC",
+                  "range" : null,
+                  "colorFunction" : null
+                },
+                "strokeWeight" : 2,
+                "polygonKey" : {
+                  "name" : "perimeter",
+                  "label" : "perimeter",
+                  "type" : "attribute",
+                  "settings" : { },
+                  "color" : "#2196f3"
+                }
+              } ],
+              "circles" : [ ],
+              "additionalDataSources" : [ ],
+              "controlsPosition" : "topleft",
+              "zoomActions" : [ "scroll", "doubleClick", "controlButtons" ],
+              "scales" : [ ],
+              "dragModeButton" : false,
+              "fitMapBounds" : true,
+              "useDefaultCenterPosition" : false,
+              "defaultCenterPosition" : "0,0",
+              "defaultZoomLevel" : null,
+              "mapPageSize" : 16384,
+              "mapActionButtons" : [ ],
+              "background" : {
+                "type" : "color",
+                "color" : "#FFFFFF01",
+                "overlay" : {
+                  "enabled" : false,
+                  "color" : "rgba(255,255,255,0.72)",
+                  "blur" : 3
+                },
+                "imageUrl" : null
+              },
+              "padding" : "8px"
+            },
+            "title" : "Route area",
+            "useDashboardTimewindow" : true,
+            "displayTimewindow" : true,
+            "showTitleIcon" : false,
+            "titleTooltip" : "",
+            "dropShadow" : true,
+            "enableFullscreen" : true,
+            "widgetStyle" : { },
+            "widgetCss" : "",
+            "titleStyle" : {
+              "fontSize" : "24px",
+              "fontWeight" : 700,
+              "padding" : "5px 10px 5px 5px",
+              "height" : "60px"
+            },
+            "pageSize" : 1024,
+            "noDataDisplayMessage" : "",
+            "configMode" : "basic",
+            "titleFont" : null,
+            "titleColor" : null,
+            "margin" : "0px",
+            "borderRadius" : "",
+            "iconSize" : "24px",
+            "titleIcon" : "map",
+            "iconColor" : "#1F6BDD",
+            "actions" : { }
+          },
+          "row" : 0,
+          "col" : 0,
+          "id" : "0b565261-9a56-d3d5-aee4-e5082d131a3a"
+        },
+        "a9bcf392-f372-4b38-214f-4a061bc533aa" : {
+          "typeFullFqn" : "system.trip_map",
+          "type" : "timeseries",
+          "sizeX" : 8.5,
+          "sizeY" : 6,
+          "config" : {
+            "datasources" : [ ],
+            "timewindow" : {
+              "hideAggregation" : false,
+              "hideAggInterval" : false,
+              "hideTimezone" : false,
+              "selectedTab" : 1,
+              "realtime" : {
+                "realtimeType" : 0,
+                "interval" : 1000,
+                "timewindowMs" : 60000,
+                "quickInterval" : "CURRENT_DAY",
+                "hideInterval" : false,
+                "hideLastInterval" : false,
+                "hideQuickInterval" : false
+              },
+              "history" : {
+                "historyType" : 0,
+                "interval" : 1000,
+                "timewindowMs" : 300000,
+                "fixedTimewindow" : {
+                  "startTimeMs" : 1742479957629,
+                  "endTimeMs" : 1742566357629
+                },
+                "quickInterval" : "CURRENT_DAY",
+                "hideInterval" : false,
+                "hideLastInterval" : false,
+                "hideFixedInterval" : false,
+                "hideQuickInterval" : false
+              },
+              "aggregation" : {
+                "type" : "NONE",
+                "limit" : 5000
+              }
+            },
+            "showTitle" : true,
+            "backgroundColor" : "rgb(255, 255, 255)",
+            "color" : "rgba(0, 0, 0, 0.87)",
+            "padding" : "0px",
+            "settings" : {
+              "mapType" : "geoMap",
+              "layers" : [ {
+                "label" : "{i18n:widgets.maps.layer.roadmap}",
+                "provider" : "openstreet",
+                "layerType" : "CartoDB.Positron",
+                "referenceLayer" : null
+              }, {
+                "label" : "{i18n:widgets.maps.layer.satellite}",
+                "provider" : "openstreet",
+                "layerType" : "Esri.WorldImagery"
+              }, {
+                "label" : "{i18n:widgets.maps.layer.hybrid}",
+                "provider" : "openstreet",
+                "layerType" : "Esri.WorldImagery",
+                "referenceLayer" : "openstreetmap_hybrid"
+              } ],
+              "trips" : [ {
+                "dsType" : "entity",
+                "dsLabel" : "",
+                "dsDeviceId" : null,
+                "dsEntityAliasId" : "4bb50567-53dc-78d3-c026-4a0f38556dd4",
+                "dsFilterId" : null,
+                "additionalDataKeys" : [ {
+                  "name" : "fuel",
+                  "type" : "timeseries",
+                  "label" : "fuel",
+                  "color" : "#2196f3",
+                  "settings" : { },
+                  "_hash" : 0.9527584119015708
+                }, {
+                  "name" : "speed",
+                  "type" : "timeseries",
+                  "label" : "speed",
+                  "color" : "#2196f3",
+                  "settings" : { },
+                  "_hash" : 0.08674762620079868
+                }, {
+                  "name" : "status",
+                  "type" : "timeseries",
+                  "label" : "status",
+                  "color" : "#2196f3",
+                  "settings" : { },
+                  "_hash" : 0.5778915574798125
+                } ],
+                "label" : {
+                  "show" : false,
+                  "type" : "pattern",
+                  "pattern" : "${entityName}",
+                  "patternFunction" : null
+                },
+                "tooltip" : {
+                  "show" : true,
+                  "trigger" : "click",
+                  "autoclose" : true,
+                  "type" : "pattern",
+                  "pattern" : "<b>${entityName}</b><br/><br/><b>Status:</b> ${status}<br/><b>Speed:</b> ${speed:0} MPH<br/><b>Fuel level:</b> ${fuel:0} %<br/>",
+                  "offsetX" : 0,
+                  "offsetY" : -0.5,
+                  "patternFunction" : null,
+                  "tagActions" : null
+                },
+                "click" : {
+                  "type" : "doNothing"
+                },
+                "groups" : [ "Trip" ],
+                "xKey" : {
+                  "name" : "latitude",
+                  "label" : "latitude",
+                  "type" : "timeseries",
+                  "settings" : { },
+                  "color" : "#2196f3"
+                },
+                "yKey" : {
+                  "name" : "longitude",
+                  "label" : "longitude",
+                  "type" : "timeseries",
+                  "settings" : { },
+                  "color" : "#2196f3"
+                },
+                "showMarker" : true,
+                "markerType" : "shape",
+                "markerShape" : {
+                  "shape" : "tripMarkerShape2",
+                  "size" : 34,
+                  "color" : {
+                    "type" : "constant",
+                    "color" : "#307FE5"
+                  }
+                },
+                "markerIcon" : {
+                  "iconContainer" : "tripIconContainer1",
+                  "icon" : "arrow_forward",
+                  "size" : 48,
+                  "color" : {
+                    "type" : "constant",
+                    "color" : "#307FE5"
+                  }
+                },
+                "markerImage" : {
+                  "type" : "image",
+                  "image" : "/assets/markers/tripShape2.svg",
+                  "imageSize" : 34
+                },
+                "markerOffsetX" : 0.5,
+                "markerOffsetY" : 0.5,
+                "rotateMarker" : true,
+                "offsetAngle" : 0,
+                "showPath" : false,
+                "pathStrokeWeight" : 4,
+                "pathStrokeColor" : {
+                  "type" : "constant",
+                  "color" : "#307FE5"
+                },
+                "usePathDecorator" : false,
+                "pathDecoratorSymbol" : "arrowHead",
+                "pathDecoratorSymbolSize" : 10,
+                "pathDecoratorSymbolColor" : "#307FE5",
+                "pathDecoratorOffset" : 20,
+                "pathEndDecoratorOffset" : 20,
+                "pathDecoratorRepeat" : 20,
+                "showPoints" : true,
+                "pointSize" : 4,
+                "pointColor" : {
+                  "type" : "function",
+                  "color" : "#307FE5",
+                  "range" : null,
+                  "colorFunction" : "var speed = Number(data.speed);\n\nif (speed >= 50) {\n    return 'red';\n} else {\n    return '#4a8aec';\n}"
+                },
+                "pointTooltip" : {
+                  "show" : true,
+                  "trigger" : "click",
+                  "autoclose" : true,
+                  "type" : "pattern",
+                  "pattern" : "<b>${entityName}</b><br/><br/><b>Status:</b> ${status}<br/><b>Speed:</b> ${speed:0} MPH<br/><b>Fuel level:</b> ${fuel:0} %<br/>",
+                  "offsetX" : 0,
+                  "offsetY" : -1,
+                  "patternFunction" : null,
+                  "tagActions" : null
+                }
+              } ],
+              "markers" : [ ],
+              "polygons" : [ {
+                "dsType" : "entity",
+                "dsLabel" : "",
+                "dsDeviceId" : null,
+                "dsEntityAliasId" : "4bb50567-53dc-78d3-c026-4a0f38556dd4",
+                "dsFilterId" : null,
+                "additionalDataKeys" : null,
+                "label" : {
+                  "show" : false,
+                  "type" : "pattern",
+                  "pattern" : "${entityName}"
+                },
+                "tooltip" : {
+                  "show" : false,
+                  "trigger" : "click",
+                  "autoclose" : true,
+                  "type" : "pattern",
+                  "pattern" : "<b>${entityName}</b><br/><br/><b>TimeStamp:</b> ${ts:7}",
+                  "offsetX" : 0,
+                  "offsetY" : -1
+                },
+                "click" : {
+                  "type" : "doNothing"
+                },
+                "groups" : [ "Route area" ],
+                "edit" : {
+                  "enabledActions" : [ ],
+                  "attributeScope" : "SERVER_SCOPE",
+                  "snappable" : false
+                },
+                "fillColor" : {
+                  "type" : "constant",
+                  "color" : "#3388FF80",
+                  "range" : null,
+                  "colorFunction" : null
+                },
+                "strokeColor" : {
+                  "type" : "constant",
+                  "color" : "#3388ff"
+                },
+                "strokeWeight" : 1,
+                "polygonKey" : {
+                  "name" : "perimeter",
+                  "label" : "perimeter",
+                  "type" : "attribute",
+                  "settings" : { },
+                  "color" : "#2196f3"
+                }
+              } ],
+              "circles" : [ ],
+              "additionalDataSources" : [ ],
+              "controlsPosition" : "topleft",
+              "zoomActions" : [ "scroll", "doubleClick", "controlButtons" ],
+              "scales" : [ ],
+              "dragModeButton" : false,
+              "fitMapBounds" : true,
+              "useDefaultCenterPosition" : false,
+              "defaultCenterPosition" : "0,0",
+              "defaultZoomLevel" : null,
+              "minZoomLevel" : 16,
+              "mapPageSize" : 16384,
+              "mapActionButtons" : [ ],
+              "tripTimeline" : {
+                "showTimelineControl" : true,
+                "timeStep" : 1000,
+                "speedOptions" : [ 1, 5, 10, 15, 25 ],
+                "showTimestamp" : true,
+                "timestampFormat" : {
+                  "format" : "MMM d, y, h:mm:ss a",
+                  "lastUpdateAgo" : false,
+                  "custom" : true,
+                  "auto" : false
+                },
+                "snapToRealLocation" : false,
+                "locationSnapFilter" : "return true;"
+              },
+              "background" : {
+                "type" : "color",
+                "color" : "#FFFFFF01",
+                "overlay" : {
+                  "enabled" : false,
+                  "color" : "rgba(255,255,255,0.72)",
+                  "blur" : 3
+                },
+                "imageUrl" : null
+              },
+              "padding" : "8px",
+              "imageSource" : null
+            },
+            "title" : "Route history",
+            "dropShadow" : true,
+            "enableFullscreen" : true,
+            "titleStyle" : {
+              "fontSize" : "24px",
+              "fontWeight" : 700,
+              "padding" : "5px 10px 5px 5px",
+              "height" : "40px"
+            },
+            "mobileHeight" : null,
+            "configMode" : "basic",
+            "actions" : { },
+            "showTitleIcon" : false,
+            "titleIcon" : "assistant_navigation",
+            "iconColor" : "#1F6BDD",
+            "useDashboardTimewindow" : false,
+            "displayTimewindow" : true,
+            "titleFont" : {
+              "size" : null,
+              "sizeUnit" : "px",
+              "family" : null,
+              "weight" : null,
+              "style" : null,
+              "lineHeight" : null
+            },
+            "titleColor" : null,
+            "titleTooltip" : "",
+            "widgetStyle" : { },
+            "widgetCss" : "",
+            "pageSize" : 1024,
+            "units" : "",
+            "decimals" : null,
+            "noDataDisplayMessage" : "",
+            "timewindowStyle" : {
+              "showIcon" : true,
+              "iconSize" : "2px",
+              "icon" : null,
+              "iconPosition" : "left",
+              "font" : {
+                "size" : 12,
+                "sizeUnit" : "px",
+                "family" : "Roboto",
+                "weight" : "400",
+                "style" : "normal",
+                "lineHeight" : "16px"
+              },
+              "color" : "rgba(0, 0, 0, 0.38)",
+              "displayTypePrefix" : true
+            },
+            "margin" : "0px",
+            "borderRadius" : "",
+            "iconSize" : "24px"
+          },
+          "row" : 0,
+          "col" : 0,
+          "id" : "a9bcf392-f372-4b38-214f-4a061bc533aa"
+        }
+      },
+      "states" : {
+        "default" : {
+          "name" : "Smart bus tracking",
+          "root" : true,
+          "layouts" : {
+            "main" : {
+              "widgets" : {
+                "f931ab44-35dc-df6d-c4e5-5daf7b78c646" : {
+                  "sizeX" : 8,
+                  "sizeY" : 5,
+                  "row" : 1,
+                  "col" : 16,
+                  "mobileOrder" : 1
+                },
+                "cab57d81-8170-87b5-d16f-08da296c43e8" : {
+                  "sizeX" : 8,
+                  "sizeY" : 6,
+                  "row" : 6,
+                  "col" : 16,
+                  "mobileOrder" : 2
+                },
+                "79dd0661-c0b5-35aa-f185-f82b336c0c5d" : {
+                  "sizeX" : 24,
+                  "sizeY" : 1,
+                  "row" : 0,
+                  "col" : 0,
+                  "mobileOrder" : 0,
+                  "mobileHeight" : 3
+                },
+                "ff996c6e-be3e-09e3-c00a-93dde3776320" : {
+                  "sizeX" : 16,
+                  "sizeY" : 11,
+                  "mobileOrder" : 3,
+                  "mobileHeight" : 8,
+                  "resizable" : true,
+                  "row" : 1,
+                  "col" : 0
+                }
+              },
+              "gridSettings" : {
+                "backgroundColor" : "#eeeeee",
+                "columns" : 24,
+                "margin" : 10,
+                "backgroundSizeMode" : "100%",
+                "autoFillHeight" : true,
+                "backgroundImageUrl" : null,
+                "mobileAutoFillHeight" : false,
+                "mobileRowHeight" : 70,
+                "outerMargin" : true,
+                "layoutType" : "default"
+              }
+            }
+          }
+        },
+        "bus" : {
+          "name" : "${entityName}",
+          "root" : false,
+          "layouts" : {
+            "main" : {
+              "widgets" : {
+                "b25897b5-505f-1ff2-ffad-4950c2cdf052" : {
+                  "sizeX" : 24,
+                  "sizeY" : 1,
+                  "row" : 0,
+                  "col" : 0,
+                  "mobileOrder" : 0
+                },
+                "9a3908ff-b60f-6e91-219f-df8a85cdcf89" : {
+                  "sizeX" : 8,
+                  "sizeY" : 11,
+                  "row" : 1,
+                  "col" : 16,
+                  "mobileOrder" : 1
+                },
+                "0b565261-9a56-d3d5-aee4-e5082d131a3a" : {
+                  "sizeX" : 16,
+                  "sizeY" : 6,
+                  "mobileOrder" : 3,
+                  "mobileHeight" : 6,
+                  "resizable" : true,
+                  "row" : 6,
+                  "col" : 0
+                },
+                "a9bcf392-f372-4b38-214f-4a061bc533aa" : {
+                  "sizeX" : 16,
+                  "sizeY" : 5,
+                  "mobileOrder" : 2,
+                  "mobileHeight" : 6,
+                  "resizable" : true,
+                  "row" : 1,
+                  "col" : 0
+                }
+              },
+              "gridSettings" : {
+                "backgroundColor" : "#eeeeee",
+                "columns" : 24,
+                "margin" : 10,
+                "backgroundSizeMode" : "100%",
+                "autoFillHeight" : true,
+                "backgroundImageUrl" : null,
+                "mobileAutoFillHeight" : false,
+                "mobileRowHeight" : 70,
+                "outerMargin" : true,
+                "layoutType" : "default"
+              }
+            }
+          }
+        },
+        "bus_alarms" : {
+          "name" : "Bus alarms",
+          "root" : false,
+          "layouts" : {
+            "main" : {
+              "widgets" : {
+                "ee11025a-a21c-d9e8-485d-6c3fb87f140e" : {
+                  "sizeX" : 24,
+                  "sizeY" : 11,
+                  "row" : 0,
+                  "col" : 0
+                }
+              },
+              "gridSettings" : {
+                "backgroundColor" : "#ffffff",
+                "columns" : 24,
+                "margin" : 0,
+                "backgroundSizeMode" : "100%",
+                "autoFillHeight" : true,
+                "backgroundImageUrl" : null,
+                "mobileAutoFillHeight" : true,
+                "mobileRowHeight" : 70,
+                "outerMargin" : true,
+                "layoutType" : "default"
+              }
+            }
+          }
+        },
+        "bus_card_header" : {
+          "name" : "Bus card header",
+          "root" : false,
+          "layouts" : {
+            "main" : {
+              "widgets" : {
+                "6657fa98-b8f5-4ab4-ea6b-ccc5d19cce0e" : {
+                  "sizeX" : 24,
+                  "sizeY" : 2,
+                  "row" : 0,
+                  "col" : 0
+                }
+              },
+              "gridSettings" : {
+                "backgroundColor" : "#ffffff",
+                "columns" : 24,
+                "margin" : 0,
+                "backgroundSizeMode" : "100%",
+                "autoFillHeight" : true,
+                "backgroundImageUrl" : null,
+                "mobileAutoFillHeight" : true,
+                "mobileRowHeight" : 70,
+                "outerMargin" : true,
+                "layoutType" : "default"
+              }
+            }
+          }
+        },
+        "bus_speed_history" : {
+          "name" : "Bus speed history",
+          "root" : false,
+          "layouts" : {
+            "main" : {
+              "widgets" : {
+                "ceaa49b9-4db3-e57b-2b24-d45a3a31d084" : {
+                  "sizeX" : 24,
+                  "sizeY" : 11,
+                  "row" : 0,
+                  "col" : 0
+                }
+              },
+              "gridSettings" : {
+                "backgroundColor" : "#ffffff",
+                "columns" : 24,
+                "margin" : 0,
+                "backgroundSizeMode" : "100%",
+                "autoFillHeight" : true,
+                "backgroundImageUrl" : null,
+                "mobileAutoFillHeight" : true,
+                "mobileRowHeight" : 70,
+                "outerMargin" : true,
+                "layoutType" : "default"
+              }
+            }
+          }
+        },
+        "fuel_level_details" : {
+          "name" : "Fuel level details",
+          "root" : false,
+          "layouts" : {
+            "main" : {
+              "widgets" : {
+                "97e2a129-e737-8f03-4b54-f89e0428f17a" : {
+                  "sizeX" : 24,
+                  "sizeY" : 11,
+                  "row" : 0,
+                  "col" : 0
+                }
+              },
+              "gridSettings" : {
+                "backgroundColor" : "#ffffff",
+                "columns" : 24,
+                "margin" : 0,
+                "backgroundSizeMode" : "100%",
+                "autoFillHeight" : true,
+                "backgroundImageUrl" : null,
+                "mobileAutoFillHeight" : true,
+                "mobileRowHeight" : 70,
+                "outerMargin" : true,
+                "layoutType" : "default"
+              }
+            }
+          }
+        },
+        "fuel_level_button" : {
+          "name" : "Fuel level button",
+          "root" : false,
+          "layouts" : {
+            "main" : {
+              "widgets" : {
+                "6adaa9b8-cb95-1c13-0a16-53816eabb84a" : {
+                  "sizeX" : 24,
+                  "sizeY" : 2,
+                  "row" : 0,
+                  "col" : 0
+                }
+              },
+              "gridSettings" : {
+                "backgroundColor" : "#ffffff",
+                "columns" : 24,
+                "margin" : 0,
+                "backgroundSizeMode" : "100%",
+                "autoFillHeight" : true,
+                "backgroundImageUrl" : null,
+                "mobileAutoFillHeight" : true,
+                "mobileRowHeight" : 70,
+                "outerMargin" : true,
+                "layoutType" : "default"
+              }
+            }
+          }
+        }
+      },
+      "entityAliases" : {
+        "4bb50567-53dc-78d3-c026-4a0f38556dd4" : {
+          "id" : "4bb50567-53dc-78d3-c026-4a0f38556dd4",
+          "alias" : "Selected bus",
+          "filter" : {
+            "type" : "stateEntity",
+            "resolveMultiple" : false,
+            "stateEntityParamName" : null,
+            "defaultStateEntity" : null
+          }
+        },
+        "91dc9422-ec87-4a99-be03-1eee92b1d4f0" : {
+          "id" : "91dc9422-ec87-4a99-be03-1eee92b1d4f0",
+          "alias" : "Buses",
+          "filter" : {
+            "type" : "entityList",
+            "resolveMultiple" : true,
+            "entityType" : "DEVICE",
+            "entityList" : [ "58d25930-32c2-11f0-9976-79c6dcdbff44", "5f30e710-32c2-11f0-9976-79c6dcdbff44", "6490c9a0-32c2-11f0-9976-79c6dcdbff44" ]
+          }
+        }
+      },
+      "filters" : { },
+      "timewindow" : {
+        "hideAggregation" : false,
+        "hideAggInterval" : false,
+        "hideTimezone" : false,
+        "selectedTab" : 0,
+        "realtime" : {
+          "realtimeType" : 0,
+          "timewindowMs" : 300000,
+          "quickInterval" : "CURRENT_DAY",
+          "interval" : 1000
+        },
+        "aggregation" : {
+          "type" : "AVG",
+          "limit" : 25000
+        }
+      },
+      "settings" : {
+        "stateControllerId" : "entity",
+        "showTitle" : false,
+        "showDashboardsSelect" : false,
+        "showEntitiesSelect" : false,
+        "showDashboardTimewindow" : false,
+        "showDashboardExport" : true,
+        "toolbarAlwaysOpen" : true,
+        "titleColor" : "rgba(0,0,0,0.870588)",
+        "showDashboardLogo" : true,
+        "dashboardLogoUrl" : null,
+        "hideToolbar" : false,
+        "showFilters" : false,
+        "showUpdateDashboardImage" : false,
+        "dashboardCss" : "\n.tb-widget-container > .tb-widget .tb-markdown-view .tb-progress-cover, .tb-widget-container > .tb-widget .tb-markdown-view .mat-drawer-container {\n    background-color: #fff;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-markdown-view .tb-progress-cover, .tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-markdown-view .mat-drawer-container {\n    background: #0D2743;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-widget-loading {\n    background: rgba(13, 39, 67, 0.15);\n}\n\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget img.leaflet-tile:not([src*=\"World_Imagery\"]) {\n    filter: invert(1) saturate(0) brightness(2);\n    opacity: 0.4 !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .leaflet-container {\n    background-color: #0D2743;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .leaflet-control-container + div {\n    background-color: rgba(13, 39, 67, 0.7) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-map-layout .tb-layers-title {\n    color: rgba(255, 255, 255, 0.87);\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-map-layout .tb-group-label {\n    color: rgba(255, 255, 255, 0.87);\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-map-layout button.tb-button-close {\n    color: rgba(255, 255, 255, 0.87);\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-map-timeline-panel .tb-timeline-controls .tb-map-timeline-timestamp {\n    color: rgba(255, 255, 255, 0.87);\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-map-timeline-panel .tb-timeline-controls .tb-timeline-buttons .mat-mdc-mini-fab.mat-primary {\n    --mdc-fab-small-container-color: #305680;\n    --mat-fab-small-foreground-color: rgba(255, 255, 255, .7);\n    --mat-fab-small-disabled-state-container-color: rgb(77 77 77 / 12%);\n    --mat-fab-small-disabled-state-foreground-color: rgb(115 115 115 / 38%);\n}\n\n.tb-widget-container > .tb-widget {\n    border-radius: 8px;\n}\n\ngridster-item:not(.tb-noselect) > .tb-widget-container > .tb-widget {\n    cursor: default !important;\n}\n\n.tb-widget-container > .tb-widget .tb-table-widget .mat-mdc-row {\n    cursor: pointer;\n}\n\n.tb-widget-container > .tb-widget .tb-legend-keys {\n    cursor: pointer;\n}\n\n.tb-dashboard-page.dark tb-dashboard > div {\n    background-color: #0A1F36 !important; /* rgb(238, 238, 238)*/\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget {\n    background: #0D2743 !important;\n    color: rgba(255, 255, 255, 0.87) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-time-series-chart-legend-type-label {\n    color: rgba(255, 255, 255, 0.57) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-time-series-chart-legend-item-label div {\n    color: rgba(255, 255, 255, 0.57) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-time-series-chart-legend-value {\n    color: rgba(255, 255, 255, 0.87) !important;\n}\n\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .flot-text {\n    color: rgba(255, 255, 255, 0.87) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .flot-text > div > div {\n    color: rgba(255, 255, 255, 0.87) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-table-widget .mat-mdc-table .mat-mdc-header-row {\n    background-color: #0D2743 !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-table-widget .mat-mdc-table .mat-mdc-header-cell.mat-mdc-table-sticky {\n    background-color: #0D2743 !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-table-widget .mat-mdc-table .mat-mdc-row .mat-mdc-cell.mat-mdc-table-sticky {\n    background-color: #0D2743 !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-table-widget .mat-mdc-table .mat-mdc-header-cell {\n    color: rgba(255, 255, 255, 0.87) !important;\n    border-bottom-color: rgba(255, 255, 255, 0.2) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-table-widget .mat-mdc-table .mat-mdc-cell {\n    color: rgba(255, 255, 255, 0.87) !important;\n    border-bottom-color: rgba(255, 255, 255, 0.2) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-table-widget .mat-mdc-table .mat-mdc-header-cell .mat-sort-header-arrow {\n    color: rgba(255, 255, 255, 0.57) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-table-widget .mat-divider {\n    border-top-color: rgba(255, 255, 255, 0.2) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-table-widget .mat-mdc-input-element::placeholder {\n    color: rgba(255, 255, 255, 0.57) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-table-widget .mat-mdc-input-element::-moz-placeholder {\n    color: rgba(255, 255, 255, 0.57) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-table-widget .mat-mdc-input-element::-webkit-input-placeholder {\n    color: rgba(255, 255, 255, 0.57) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-table-widget .mat-mdc-input-element:-ms-input-placeholder {\n    color: rgba(255, 255, 255, 0.57) !important;\n}\n\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-table-widget .mat-mdc-table .mat-mdc-cell .mdc-checkbox__background,.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-table-widget .mat-mdc-table .mat-mdc-header-cell .mdc-checkbox__background {\n    border-color : rgba(255, 255, 255, 0.57) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-table-widget .mat-mdc-table .mat-mdc-cell button.mat-mdc-icon-button mat-icon {\n    color : rgba(255, 255, 255, 0.57) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-table-widget mat-toolbar.mat-mdc-table-toolbar:not([color=\"primary\"]) button.mat-mdc-icon-button mat-icon {\n    color : rgba(255, 255, 255, 0.57) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-table-widget .mat-mdc-table .mat-mdc-cell button.mat-mdc-icon-button[disabled][disabled] mat-icon {\n    color : rgba(255, 255, 255, 0.2) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-table-widget .mat-mdc-paginator {\n    color: rgba(255, 255, 255, 0.57) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget button.mat-mdc-icon-button mat-icon,\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget button.mat-mdc-icon-button,\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-table-widget .mat-mdc-paginator button.mat-mdc-icon-button {\n    color : rgba(255, 255, 255, 0.57) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget button.mat-mdc-icon-button[disabled][disabled],\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-table-widget .mat-mdc-paginator button.mat-mdc-icon-button[disabled][disabled] {\n    color : rgba(255, 255, 255, 0.2) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .mat-mdc-select-value,\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .tb-table-widget .mat-mdc-paginator .mat-mdc-select-value {\n    color : rgba(255, 255, 255, 0.57) !important;\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .mat-mdc-select-arrow {\n    color : rgba(255, 255, 255, 0.57);\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple:before {\n    border-bottom-color: rgba(255, 255, 255, 0.4);\n}\n\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading, \n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,\n.tb-dashboard-page.dark .tb-widget-container > .tb-widget .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {\n    border-color: rgba(255, 255, 255, 0.4);\n}\n\n.tb-dashboard-page.dark .tb-markdown-view div,\n.tb-dashboard-page.dark .tb-markdown-view div.param,\n.tb-dashboard-page.dark .tb-markdown-view .header .title,\n.tb-dashboard-page.dark .tb-markdown-view p {\n    color : rgba(255, 255, 255, 0.87);\n}\n\n.tb-dashboard-page.dark .tb-markdown-view div.param-title,\n.tb-dashboard-page.dark .tb-markdown-view .header .subtitle {\n    color : rgba(255, 255, 255, 0.6);\n}\n\n.tb-dashboard-page.dark .tb-powered-by-footer {\n    color : rgba(255, 255, 255, 0.87) !important;\n}\n"
+      }
+    },
+    "name" : "Smart bus tracking",
+    "resources" : null,
+    "assignedCustomers" : null,
+    "externalId" : null,
+    "id" : {
+      "entityType" : "DASHBOARD",
+      "id" : "de3bf180-32c2-11f0-9976-79c6dcdbff44"
+    }
+  },
+  "relations" : [ ],
+  "attributes" : {
+    "SERVER_SCOPE" : [ ]
+  }
+}
