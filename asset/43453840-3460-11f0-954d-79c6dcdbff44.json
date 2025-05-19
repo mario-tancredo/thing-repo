@@ -1,0 +1,170 @@
+{
+  "entityType" : "ASSET",
+  "entity" : {
+    "additionalInfo" : {
+      "description" : ""
+    },
+    "assetProfileId" : {
+      "entityType" : "ASSET_PROFILE",
+      "id" : "98e95210-2ec8-11f0-8470-1371eda56aa2"
+    },
+    "customerId" : {
+      "entityType" : "CUSTOMER",
+      "id" : "9921ee40-2ec8-11f0-8470-1371eda56aa2"
+    },
+    "externalId" : null,
+    "id" : {
+      "entityType" : "ASSET",
+      "id" : "43453840-3460-11f0-954d-79c6dcdbff44"
+    },
+    "label" : null,
+    "name" : "Planta - Aceros Arequipa",
+    "type" : "default"
+  },
+  "relations" : [ {
+    "additionalInfo" : null,
+    "from" : {
+      "entityType" : "ASSET",
+      "id" : "43453840-3460-11f0-954d-79c6dcdbff44"
+    },
+    "to" : {
+      "entityType" : "DEVICE",
+      "id" : "8a22fe10-32d4-11f0-9184-79c6dcdbff44"
+    },
+    "type" : "Contains",
+    "typeGroup" : "COMMON",
+    "version" : 63
+  }, {
+    "additionalInfo" : null,
+    "from" : {
+      "entityType" : "ASSET",
+      "id" : "43453840-3460-11f0-954d-79c6dcdbff44"
+    },
+    "to" : {
+      "entityType" : "DEVICE",
+      "id" : "91980500-32d4-11f0-9184-79c6dcdbff44"
+    },
+    "type" : "Contains",
+    "typeGroup" : "COMMON",
+    "version" : 62
+  }, {
+    "additionalInfo" : null,
+    "from" : {
+      "entityType" : "ASSET",
+      "id" : "43453840-3460-11f0-954d-79c6dcdbff44"
+    },
+    "to" : {
+      "entityType" : "DEVICE",
+      "id" : "97861dd0-32d4-11f0-9184-79c6dcdbff44"
+    },
+    "type" : "Contains",
+    "typeGroup" : "COMMON",
+    "version" : 65
+  }, {
+    "additionalInfo" : null,
+    "from" : {
+      "entityType" : "ASSET",
+      "id" : "43453840-3460-11f0-954d-79c6dcdbff44"
+    },
+    "to" : {
+      "entityType" : "DEVICE",
+      "id" : "9c2b14d0-32d4-11f0-9184-79c6dcdbff44"
+    },
+    "type" : "Contains",
+    "typeGroup" : "COMMON",
+    "version" : 69
+  }, {
+    "additionalInfo" : null,
+    "from" : {
+      "entityType" : "ASSET",
+      "id" : "43453840-3460-11f0-954d-79c6dcdbff44"
+    },
+    "to" : {
+      "entityType" : "DEVICE",
+      "id" : "a097bdc0-32d4-11f0-9184-79c6dcdbff44"
+    },
+    "type" : "Contains",
+    "typeGroup" : "COMMON",
+    "version" : 67
+  }, {
+    "additionalInfo" : null,
+    "from" : {
+      "entityType" : "ASSET",
+      "id" : "43453840-3460-11f0-954d-79c6dcdbff44"
+    },
+    "to" : {
+      "entityType" : "DEVICE",
+      "id" : "a6c52980-32d4-11f0-9184-79c6dcdbff44"
+    },
+    "type" : "Contains",
+    "typeGroup" : "COMMON",
+    "version" : 68
+  }, {
+    "additionalInfo" : null,
+    "from" : {
+      "entityType" : "ASSET",
+      "id" : "43453840-3460-11f0-954d-79c6dcdbff44"
+    },
+    "to" : {
+      "entityType" : "DEVICE",
+      "id" : "58d25930-32c2-11f0-9976-79c6dcdbff44"
+    },
+    "type" : "Contains",
+    "typeGroup" : "COMMON",
+    "version" : 66
+  }, {
+    "additionalInfo" : null,
+    "from" : {
+      "entityType" : "ASSET",
+      "id" : "43453840-3460-11f0-954d-79c6dcdbff44"
+    },
+    "to" : {
+      "entityType" : "DEVICE",
+      "id" : "5f30e710-32c2-11f0-9976-79c6dcdbff44"
+    },
+    "type" : "Contains",
+    "typeGroup" : "COMMON",
+    "version" : 61
+  }, {
+    "additionalInfo" : null,
+    "from" : {
+      "entityType" : "ASSET",
+      "id" : "43453840-3460-11f0-954d-79c6dcdbff44"
+    },
+    "to" : {
+      "entityType" : "DEVICE",
+      "id" : "6490c9a0-32c2-11f0-9976-79c6dcdbff44"
+    },
+    "type" : "Contains",
+    "typeGroup" : "COMMON",
+    "version" : 64
+  } ],
+  "attributes" : {
+    "SERVER_SCOPE" : [ {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "atLote15",
+      "lastUpdateTs" : 1747634539579,
+      "longValue" : null,
+      "strValue" : "Tracker 1, Tracker 2, Tracker 3"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : "[[-13.78781886301334,-76.16876141960421],[-13.787510812252595,-76.16821959458066],[-13.790454249295816,-76.16648285185096],[-13.790756520187218,-76.16701528558185]]",
+      "key" : "lote_15",
+      "lastUpdateTs" : 1747632964816,
+      "longValue" : null,
+      "strValue" : null
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : "[[-13.792056936645869,-76.16555722565076],[-13.791609210698232,-76.1648007623705],[-13.793030477312092,-76.16391553938296],[-13.793483822308152,-76.16466700574914]]",
+      "key" : "lote_16",
+      "lastUpdateTs" : 1747632929668,
+      "longValue" : null,
+      "strValue" : null
+    } ]
+  },
+  "calculatedFields" : [ ]
+}

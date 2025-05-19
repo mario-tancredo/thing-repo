@@ -8,7 +8,7 @@
     },
     "customerId" : {
       "entityType" : "CUSTOMER",
-      "id" : "13814000-1dd2-11b2-8080-808080808080"
+      "id" : "9921ee40-2ec8-11f0-8470-1371eda56aa2"
     },
     "deviceData" : {
       "configuration" : {
@@ -38,9 +38,78 @@
     "credentialsType" : "ACCESS_TOKEN",
     "credentialsValue" : null
   },
-  "relations" : [ ],
+  "relations" : [ {
+    "additionalInfo" : null,
+    "from" : {
+      "entityType" : "ASSET",
+      "id" : "43453840-3460-11f0-954d-79c6dcdbff44"
+    },
+    "to" : {
+      "entityType" : "DEVICE",
+      "id" : "9c2b14d0-32d4-11f0-9184-79c6dcdbff44"
+    },
+    "type" : "Contains",
+    "typeGroup" : "COMMON",
+    "version" : 69
+  } ],
   "attributes" : {
     "SERVER_SCOPE" : [ {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "DNI",
+      "lastUpdateTs" : 1747632076700,
+      "longValue" : null,
+      "strValue" : "68920413"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "DT",
+      "lastUpdateTs" : 1747632076700,
+      "longValue" : null,
+      "strValue" : "893014"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "Empresa",
+      "lastUpdateTs" : 1747632076700,
+      "longValue" : null,
+      "strValue" : "Transporte de Carga y Minerales"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "NIA",
+      "lastUpdateTs" : 1747632076700,
+      "longValue" : null,
+      "strValue" : "60281347"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "Nombre",
+      "lastUpdateTs" : 1747632076700,
+      "longValue" : null,
+      "strValue" : "Ana Luz Ccopa"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "Placa",
+      "lastUpdateTs" : 1747632076700,
+      "longValue" : null,
+      "strValue" : "T2F-651"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "RUC",
+      "lastUpdateTs" : 1747632076700,
+      "longValue" : null,
+      "strValue" : "20394851270"
+    }, {
       "booleanValue" : false,
       "doubleValue" : null,
       "jsonValue" : null,
@@ -64,8 +133,24 @@
       "lastUpdateTs" : 1747455612796,
       "longValue" : 1747455610358,
       "strValue" : null
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "name",
+      "lastUpdateTs" : 1747632076700,
+      "longValue" : null,
+      "strValue" : "Tracker 7"
     } ],
-    "SHARED_SCOPE" : [ ]
+    "SHARED_SCOPE" : [ {
+      "booleanValue" : true,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "Activado",
+      "lastUpdateTs" : 1747629349902,
+      "longValue" : null,
+      "strValue" : null
+    } ]
   },
   "calculatedFields" : [ ]
 }

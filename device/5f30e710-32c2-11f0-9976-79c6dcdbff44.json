@@ -8,7 +8,7 @@
     },
     "customerId" : {
       "entityType" : "CUSTOMER",
-      "id" : "13814000-1dd2-11b2-8080-808080808080"
+      "id" : "9921ee40-2ec8-11f0-8470-1371eda56aa2"
     },
     "deviceData" : {
       "configuration" : {
@@ -38,54 +38,83 @@
     "credentialsType" : "ACCESS_TOKEN",
     "credentialsValue" : null
   },
-  "relations" : [ ],
+  "relations" : [ {
+    "additionalInfo" : null,
+    "from" : {
+      "entityType" : "ASSET",
+      "id" : "43453840-3460-11f0-954d-79c6dcdbff44"
+    },
+    "to" : {
+      "entityType" : "DEVICE",
+      "id" : "5f30e710-32c2-11f0-9976-79c6dcdbff44"
+    },
+    "type" : "Contains",
+    "typeGroup" : "COMMON",
+    "version" : 61
+  } ],
   "attributes" : {
     "SERVER_SCOPE" : [ {
       "booleanValue" : null,
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "DNI",
-      "lastUpdateTs" : 1747458293263,
-      "longValue" : 13123,
-      "strValue" : null
+      "lastUpdateTs" : 1747630717321,
+      "longValue" : null,
+      "strValue" : "75823914"
     }, {
       "booleanValue" : null,
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "DT",
-      "lastUpdateTs" : 1747458293263,
+      "lastUpdateTs" : 1747630717321,
       "longValue" : null,
-      "strValue" : "sdf"
+      "strValue" : "985243"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "Empresa",
+      "lastUpdateTs" : 1747630717321,
+      "longValue" : null,
+      "strValue" : "Minerales Andinos SAC"
     }, {
       "booleanValue" : null,
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "NIA",
-      "lastUpdateTs" : 1747458293263,
+      "lastUpdateTs" : 1747630717321,
       "longValue" : null,
-      "strValue" : "sdfsdf"
+      "strValue" : "12039847"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "Nombre",
+      "lastUpdateTs" : 1747630717321,
+      "longValue" : null,
+      "strValue" : "María Elena Quispe"
     }, {
       "booleanValue" : null,
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "Placa",
-      "lastUpdateTs" : 1747458293263,
-      "longValue" : 1231,
-      "strValue" : null
+      "lastUpdateTs" : 1747630717321,
+      "longValue" : null,
+      "strValue" : "C7A-912"
     }, {
       "booleanValue" : null,
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "RUC",
-      "lastUpdateTs" : 1747458293263,
+      "lastUpdateTs" : 1747630717321,
       "longValue" : null,
-      "strValue" : "asda"
+      "strValue" : "20517892340"
     }, {
-      "booleanValue" : false,
+      "booleanValue" : true,
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "active",
-      "lastUpdateTs" : 1747456085427,
+      "lastUpdateTs" : 1747636130876,
       "longValue" : null,
       "strValue" : null
     }, {
@@ -101,19 +130,51 @@
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "lastActivityTime",
-      "lastUpdateTs" : 1747455480801,
-      "longValue" : 1747455478537,
+      "lastUpdateTs" : 1747636136960,
+      "longValue" : 1747636136960,
+      "strValue" : null
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "lastConnectTime",
+      "lastUpdateTs" : 1747636136960,
+      "longValue" : 1747636136960,
+      "strValue" : null
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "lastDisconnectTime",
+      "lastUpdateTs" : 1747636136960,
+      "longValue" : 1747636136960,
       "strValue" : null
     }, {
       "booleanValue" : null,
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "name",
-      "lastUpdateTs" : 1747458293263,
+      "lastUpdateTs" : 1747630717321,
       "longValue" : null,
-      "strValue" : "Tracker 4"
+      "strValue" : "Tracker 2"
     } ],
-    "SHARED_SCOPE" : [ ]
+    "SHARED_SCOPE" : [ {
+      "booleanValue" : true,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "Activado",
+      "lastUpdateTs" : 1747629217008,
+      "longValue" : null,
+      "strValue" : null
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "Estado",
+      "lastUpdateTs" : 1747626616538,
+      "longValue" : null,
+      "strValue" : "OFF"
+    } ]
   },
   "calculatedFields" : [ ]
 }

@@ -8,7 +8,7 @@
     },
     "customerId" : {
       "entityType" : "CUSTOMER",
-      "id" : "13814000-1dd2-11b2-8080-808080808080"
+      "id" : "9921ee40-2ec8-11f0-8470-1371eda56aa2"
     },
     "deviceData" : {
       "configuration" : {
@@ -38,70 +38,83 @@
     "credentialsType" : "ACCESS_TOKEN",
     "credentialsValue" : null
   },
-  "relations" : [ ],
+  "relations" : [ {
+    "additionalInfo" : null,
+    "from" : {
+      "entityType" : "ASSET",
+      "id" : "43453840-3460-11f0-954d-79c6dcdbff44"
+    },
+    "to" : {
+      "entityType" : "DEVICE",
+      "id" : "58d25930-32c2-11f0-9976-79c6dcdbff44"
+    },
+    "type" : "Contains",
+    "typeGroup" : "COMMON",
+    "version" : 66
+  } ],
   "attributes" : {
     "SERVER_SCOPE" : [ {
       "booleanValue" : null,
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "DNI",
-      "lastUpdateTs" : 1747456350452,
+      "lastUpdateTs" : 1747630679349,
       "longValue" : null,
-      "strValue" : "234"
+      "strValue" : "46782315"
     }, {
       "booleanValue" : null,
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "DT",
-      "lastUpdateTs" : 1747456350452,
+      "lastUpdateTs" : 1747630679349,
       "longValue" : null,
-      "strValue" : "234234"
+      "strValue" : "182364"
     }, {
       "booleanValue" : null,
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "Empresa",
-      "lastUpdateTs" : 1747490202010,
+      "lastUpdateTs" : 1747630679349,
       "longValue" : null,
-      "strValue" : "Fierros Huancayo"
+      "strValue" : "Transportes Huamán EIRL"
     }, {
       "booleanValue" : null,
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "NIA",
-      "lastUpdateTs" : 1747456350452,
+      "lastUpdateTs" : 1747630679349,
       "longValue" : null,
-      "strValue" : "234234"
+      "strValue" : "83927146"
     }, {
       "booleanValue" : null,
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "Nombre",
-      "lastUpdateTs" : 1747490163577,
+      "lastUpdateTs" : 1747630679349,
       "longValue" : null,
-      "strValue" : "Augusto Huamachuco"
+      "strValue" : "Juan Carlos Huamán"
     }, {
       "booleanValue" : null,
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "Placa",
-      "lastUpdateTs" : 1747457878155,
+      "lastUpdateTs" : 1747630679349,
       "longValue" : null,
-      "strValue" : "SDF"
+      "strValue" : "B3C-245"
     }, {
       "booleanValue" : null,
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "RUC",
-      "lastUpdateTs" : 1747456350452,
+      "lastUpdateTs" : 1747630679349,
       "longValue" : null,
-      "strValue" : "324324"
+      "strValue" : "20451236987"
     }, {
-      "booleanValue" : false,
+      "booleanValue" : true,
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "active",
-      "lastUpdateTs" : 1747621286695,
+      "lastUpdateTs" : 1747635143159,
       "longValue" : null,
       "strValue" : null
     }, {
@@ -117,35 +130,99 @@
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "lastActivityTime",
-      "lastUpdateTs" : 1747620636795,
-      "longValue" : 1747620636795,
+      "lastUpdateTs" : 1747636171402,
+      "longValue" : 1747636169573,
       "strValue" : null
     }, {
       "booleanValue" : null,
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "lastConnectTime",
-      "lastUpdateTs" : 1747620636794,
-      "longValue" : 1747620636794,
+      "lastUpdateTs" : 1747636169568,
+      "longValue" : 1747636169568,
       "strValue" : null
     }, {
       "booleanValue" : null,
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "lastDisconnectTime",
-      "lastUpdateTs" : 1747620636795,
-      "longValue" : 1747620636795,
+      "lastUpdateTs" : 1747636169594,
+      "longValue" : 1747636169594,
       "strValue" : null
     }, {
       "booleanValue" : null,
       "doubleValue" : null,
       "jsonValue" : null,
       "key" : "name",
-      "lastUpdateTs" : 1747457878155,
+      "lastUpdateTs" : 1747630679349,
       "longValue" : null,
-      "strValue" : "Tracker 2"
+      "strValue" : "Tracker 1"
     } ],
-    "SHARED_SCOPE" : [ ]
+    "SHARED_SCOPE" : [ {
+      "booleanValue" : true,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "Activado",
+      "lastUpdateTs" : 1747629212378,
+      "longValue" : null,
+      "strValue" : null
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "DNI",
+      "lastUpdateTs" : 1747630172626,
+      "longValue" : null,
+      "strValue" : "0"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "DT",
+      "lastUpdateTs" : 1747630217761,
+      "longValue" : null,
+      "strValue" : "0"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "Empresa",
+      "lastUpdateTs" : 1747630208303,
+      "longValue" : null,
+      "strValue" : "0"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "NIA",
+      "lastUpdateTs" : 1747630226626,
+      "longValue" : null,
+      "strValue" : "0"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "Nombre",
+      "lastUpdateTs" : 1747630187734,
+      "longValue" : null,
+      "strValue" : "0"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "Placa",
+      "lastUpdateTs" : 1747630256188,
+      "longValue" : null,
+      "strValue" : "0"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "RUC",
+      "lastUpdateTs" : 1747630198492,
+      "longValue" : null,
+      "strValue" : "0"
+    } ]
   },
   "calculatedFields" : [ ]
 }

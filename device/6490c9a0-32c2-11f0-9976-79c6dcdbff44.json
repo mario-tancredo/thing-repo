@@ -8,7 +8,7 @@
     },
     "customerId" : {
       "entityType" : "CUSTOMER",
-      "id" : "13814000-1dd2-11b2-8080-808080808080"
+      "id" : "9921ee40-2ec8-11f0-8470-1371eda56aa2"
     },
     "deviceData" : {
       "configuration" : {
@@ -38,9 +38,78 @@
     "credentialsType" : "ACCESS_TOKEN",
     "credentialsValue" : null
   },
-  "relations" : [ ],
+  "relations" : [ {
+    "additionalInfo" : null,
+    "from" : {
+      "entityType" : "ASSET",
+      "id" : "43453840-3460-11f0-954d-79c6dcdbff44"
+    },
+    "to" : {
+      "entityType" : "DEVICE",
+      "id" : "6490c9a0-32c2-11f0-9976-79c6dcdbff44"
+    },
+    "type" : "Contains",
+    "typeGroup" : "COMMON",
+    "version" : 64
+  } ],
   "attributes" : {
     "SERVER_SCOPE" : [ {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "DNI",
+      "lastUpdateTs" : 1747630770763,
+      "longValue" : null,
+      "strValue" : "41789205"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "DT",
+      "lastUpdateTs" : 1747630770763,
+      "longValue" : null,
+      "strValue" : "672013"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "Empresa",
+      "lastUpdateTs" : 1747630770763,
+      "longValue" : null,
+      "strValue" : "Logística Minera Inka SRL"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "NIA",
+      "lastUpdateTs" : 1747630770763,
+      "longValue" : null,
+      "strValue" : "93017284"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "Nombre",
+      "lastUpdateTs" : 1747630770763,
+      "longValue" : null,
+      "strValue" : "Luis Alberto Chumpitaz"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "Placa",
+      "lastUpdateTs" : 1747630770763,
+      "longValue" : null,
+      "strValue" : "D1E-630"
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "RUC",
+      "lastUpdateTs" : 1747630770763,
+      "longValue" : null,
+      "strValue" : "20652319783"
+    }, {
       "booleanValue" : false,
       "doubleValue" : null,
       "jsonValue" : null,
@@ -64,8 +133,24 @@
       "lastUpdateTs" : 1747455495801,
       "longValue" : 1747455493381,
       "strValue" : null
+    }, {
+      "booleanValue" : null,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "name",
+      "lastUpdateTs" : 1747630770763,
+      "longValue" : null,
+      "strValue" : "Tracker 3"
     } ],
-    "SHARED_SCOPE" : [ ]
+    "SHARED_SCOPE" : [ {
+      "booleanValue" : true,
+      "doubleValue" : null,
+      "jsonValue" : null,
+      "key" : "Activado",
+      "lastUpdateTs" : 1747629221477,
+      "longValue" : null,
+      "strValue" : null
+    } ]
   },
   "calculatedFields" : [ ]
 }
